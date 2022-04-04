@@ -1,7 +1,10 @@
 plugins {
     id 'java'
     id 'jacoco'
+<<<<<<< HEAD
     id "org.sonarqube" version "3.3"
+=======
+>>>>>>> a42204f69387321012e8950684a779b99d50ab6b
 }
 
 group 'org.example'
@@ -47,13 +50,18 @@ test {
 jacocoTestReport {
     dependsOn test
     reports {
+<<<<<<< HEAD
         xml.required = true
+=======
+        xml.required = false
+>>>>>>> a42204f69387321012e8950684a779b99d50ab6b
         csv.required = false
         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
 }
 
 
+<<<<<<< HEAD
 
 jacoco {
     toolVersion = "0.8.7"
@@ -70,3 +78,9 @@ sonarqube {
                 "**/com/revature/controller/*, **/com/revature/dto/*, **/com/revature/main/*, **/com/revature/utility/*"
     }
 }
+=======
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('JacocoReportDir') as Directory
+}
+>>>>>>> a42204f69387321012e8950684a779b99d50ab6b
