@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id "org.sonarqube" version "3.3"
 }
 
 group 'org.example'
@@ -46,14 +47,26 @@ test {
 jacocoTestReport {
     dependsOn test
     reports {
-        xml.required = false
+        xml.required = true
         csv.required = false
         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
 }
 
 
+
 jacoco {
     toolVersion = "0.8.7"
-    reportsDirectory = layout.buildDirectory.dir('JacocoReportDir') as Directory
+    reportsDirectory = file("$buildDir/jacoco")
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "cait-tal_gradify-backend"
+        property "sonar.organization", "cait-tal"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.coverage.jacoco.xmlReportPath", "$buildDir/jacoco/test/jacocoTestReport.xml"
+        property "sonar.coverage.exclusions", "**/com/revature/model/*, **/com/revature/dao/*, **/com/revature/exception/*, " +
+                "**/com/revature/controller/*, **/com/revature/dto/*, **/com/revature/main/*, **/com/revature/utility/*"
+    }
 }
