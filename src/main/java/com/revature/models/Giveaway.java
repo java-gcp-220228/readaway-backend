@@ -26,13 +26,15 @@ public class Giveaway {
     @Column(name = "isbn", nullable = false)
     private String isbn;
 
-    @Column(name = "active", nullable = false)
-    private boolean active;
-
     @JoinColumn(name = "creator_id")
     @ManyToOne
     @OnDelete(action= OnDeleteAction.CASCADE)
     private User creator;
+
+    @JoinColumn(name = "winner_id")
+    @ManyToOne
+    @OnDelete(action= OnDeleteAction.CASCADE)
+    private User winner;
 
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
@@ -45,21 +47,21 @@ public class Giveaway {
     public Giveaway() {
     }
 
-    public Giveaway(Timestamp startTime, Timestamp endTime, String isbn, boolean active, User creator) {
+    public Giveaway(Timestamp startTime, Timestamp endTime, String isbn, User creator, User winner) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.isbn = isbn;
-        this.active = active;
         this.creator = creator;
+        this.winner = winner;
     }
 
-    public Giveaway(int id, Timestamp startTime, Timestamp endTime, String isbn, boolean active, User creator, Set<User> users) {
+    public Giveaway(int id, Timestamp startTime, Timestamp endTime, String isbn, User creator, User winner, Set<User> users) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
         this.isbn = isbn;
-        this.active = active;
         this.creator = creator;
+        this.winner = winner;
         this.users = users;
     }
 
@@ -95,20 +97,20 @@ public class Giveaway {
         this.isbn = isbn;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
     public User getCreator() {
         return creator;
     }
 
     public void setCreator(User creator) {
         this.creator = creator;
+    }
+
+    public User getWinner() {
+        return winner;
+    }
+
+    public void setWinner(User winner) {
+        this.winner = winner;
     }
 
     public Set<User> getUsers() {
@@ -124,12 +126,12 @@ public class Giveaway {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Giveaway giveaway = (Giveaway) o;
-        return id == giveaway.id && active == giveaway.active && Objects.equals(startTime, giveaway.startTime) && Objects.equals(endTime, giveaway.endTime) && Objects.equals(isbn, giveaway.isbn) && Objects.equals(creator, giveaway.creator) && Objects.equals(users, giveaway.users);
+        return id == giveaway.id && Objects.equals(startTime, giveaway.startTime) && Objects.equals(endTime, giveaway.endTime) && Objects.equals(isbn, giveaway.isbn) && Objects.equals(creator, giveaway.creator) && Objects.equals(winner, giveaway.winner) && Objects.equals(users, giveaway.users);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startTime, endTime, isbn, active, creator, users);
+        return Objects.hash(id, startTime, endTime, isbn, creator, winner, users);
     }
 
     @Override
@@ -139,8 +141,8 @@ public class Giveaway {
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", isbn='" + isbn + '\'' +
-                ", active=" + active +
                 ", creator=" + creator +
+                ", winner=" + winner +
                 ", users=" + users +
                 '}';
     }
