@@ -45,38 +45,66 @@ public class User {
         this.entries = entries;
     }
 
-    public int getId() {return id;}
-
-    public void setId(int id) {this.id=id;}
-
-    public String getUsername(){return username;}
-
-    public  void setUsername(String username){this.username = username;}
-
-    public String getPassword(){return username;}
-
-    public  void setPassword(String username){this.password = password;}
-
-    public void setEmail(String email) { this.email = email; }
-
-    public String getEmail() { return email; }
-
-    public void setEntries(Set<Giveaway> entries) { this.entries = entries; }
-
-    public Set<Giveaway> getEntries() { return entries; }
-
-
-
-
-    @Override
-    public int hashCode() {return Objects.hash(id, username, password, email, entries);}
-
-    @Override
-    public boolean equals(Object o) {
-        if(this == o)return true;
-        if(o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(email, user.email) && Objects.equals(entries, user.entries);
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Set<Giveaway> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(Set<Giveaway> entries) {
+        this.entries = entries;
+    }
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof User)) return false;
+        if (!super.equals(object)) return false;
+        User user = (User) object;
+        return id == user.id && username.equals(user.username) && password.equals(user.password) && email.equals(user.email) && java.util.Objects.equals(entries, user.entries);
+    }
+
+    public int hashCode() {
+        return java.util.Objects.hash(super.hashCode(), id, username, password, email, entries);
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "User{" +
+            "id=" + id +
+            ", username='" + username + '\'' +
+            ", password='" + password + '\'' +
+            ", email='" + email + '\'' +
+            ", entries=" + entries +
+            '}';
+    }
 }
