@@ -11,19 +11,16 @@ import java.util.*;
 @Data
 @NoArgsConstructor
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
-    @Column(name = "username", nullable = false, length = 50)
-    private String username;
+  @Column(name = "username", nullable = false, length = 50)
+  private String username;
 
-    @Column(name = "password", nullable = false, length = 50)
-    private String password;
+  @Column(name = "password", nullable = false, length = 50)
+  private String password;
 
-    @Column(name = "email", nullable = false, length = 50)
-    private String email;
-
-
-
+  @Column(name = "email", nullable = false, length = 50)
+  private String email;
 }

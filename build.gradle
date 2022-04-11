@@ -46,7 +46,6 @@ jar {
 }
 
 
-
 jacocoTestReport {
   dependsOn test
   reports {
