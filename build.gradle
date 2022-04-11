@@ -1,81 +1,81 @@
 plugins {
-    id 'java'
-    id 'jacoco'
-    id "org.sonarqube" version "3.3"
+  id 'java'
+  id 'jacoco'
+  id "org.sonarqube" version "3.3"
 }
 
 group 'org.revature'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 jar {
-    manifest {
-        attributes 'Main-Class': 'com.revature.main.Driver'
-    }
+  manifest {
+    attributes 'Main-Class': 'com.revature.main.Driver'
+  }
 
-    from {
-        (configurations.runtimeClasspath).collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
+  from {
+    (configurations.runtimeClasspath).collect {
+      it.isDirectory() ? it : zipTree(it)
     }
+  }
 
-    duplicatesStrategy 'exclude'
+  duplicatesStrategy 'exclude'
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
-    implementation 'junit:junit:4.13.1'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    testImplementation 'org.mockito:mockito-core:4.3.1'
+  implementation 'junit:junit:4.13.1'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+  testImplementation 'org.mockito:mockito-core:4.3.1'
 
-    implementation 'org.postgresql:postgresql:42.3.3'
-    implementation 'org.hibernate:hibernate-core:5.6.7.Final'
+  implementation 'org.postgresql:postgresql:42.3.3'
+  implementation 'org.hibernate:hibernate-core:5.6.7.Final'
 
-    implementation 'ch.qos.logback:logback-classic:1.2.11'
+  implementation 'ch.qos.logback:logback-classic:1.2.11'
 }
 test {
-    useJUnitPlatform()
-    finalizedBy jacocoTestReport
+  useJUnitPlatform()
+  finalizedBy jacocoTestReport
 }
 
 jacocoTestReport {
-    dependsOn test
-    reports {
+  dependsOn test
+  reports {
 
-        xml.required = true
+    xml.required = true
 
-        xml.required = false
+    xml.required = false
 
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-    }
+    csv.required = false
+    html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+  }
 }
 
 
 jacoco {
-    toolVersion = "0.8.7"
-    reportsDirectory = file("$buildDir/jacoco")
+  toolVersion = "0.8.7"
+  reportsDirectory = file("$buildDir/jacoco")
 }
 
 sonarqube {
-    properties {
-        property "sonar.projectKey", "java-gcp-220228_readaway-backend"
-        property "sonar.organization", "java-gcp-220228"
-        property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.coverage.jacoco.xmlReportPath", "$buildDir/jacoco/test/jacocoTestReport.xml"
-        property "sonar.coverage.exclusions", "**/com/revature/model/*, **/com/revature/dao/*, **/com/revature/exception/*, " +
-                "**/com/revature/controller/*, **/com/revature/dto/*, **/com/revature/main/*, **/com/revature/utility/*"
-    }
+  properties {
+    property "sonar.projectKey", "java-gcp-220228_readaway-backend"
+    property "sonar.organization", "java-gcp-220228"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.coverage.jacoco.xmlReportPath", "$buildDir/jacoco/test/jacocoTestReport.xml"
+    property "sonar.coverage.exclusions", "**/com/revature/model/*, **/com/revature/dao/*, **/com/revature/exception/*, " +
+        "**/com/revature/controller/*, **/com/revature/dto/*, **/com/revature/main/*, **/com/revature/utility/*"
+  }
 }
 
 jacoco {
-    toolVersion = "0.8.7"
-    reportsDirectory = layout.buildDirectory.dir('JacocoReportDir') as Directory
+  toolVersion = "0.8.7"
+  reportsDirectory = layout.buildDirectory.dir('JacocoReportDir') as Directory
 }
 
