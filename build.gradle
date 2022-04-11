@@ -1,14 +1,34 @@
 plugins {
-    id 'java'
-    id 'jacoco'
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
     id "org.sonarqube" version "3.3"
+    id 'jacoco'
 }
 
-group 'org.revature'
-version '1.0-SNAPSHOT'
+group = 'com.revature'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
 
 repositories {
-    mavenCentral()
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 jar {
@@ -25,24 +45,7 @@ jar {
     duplicatesStrategy 'exclude'
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
-    implementation 'junit:junit:4.13.1'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    testImplementation 'org.mockito:mockito-core:4.3.1'
-
-    implementation 'org.postgresql:postgresql:42.3.3'
-    implementation 'org.hibernate:hibernate-core:5.6.7.Final'
-
-    implementation 'ch.qos.logback:logback-classic:1.2.11'
-}
-test {
-    useJUnitPlatform()
-    finalizedBy jacocoTestReport
-}
 
 jacocoTestReport {
     dependsOn test
@@ -62,6 +65,10 @@ jacoco {
     toolVersion = "0.8.7"
     reportsDirectory = file("$buildDir/jacoco")
 }
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
 
 sonarqube {
     properties {
@@ -72,10 +79,5 @@ sonarqube {
         property "sonar.coverage.exclusions", "**/com/revature/model/*, **/com/revature/dao/*, **/com/revature/exception/*, " +
                 "**/com/revature/controller/*, **/com/revature/dto/*, **/com/revature/main/*, **/com/revature/utility/*"
     }
-}
-
-jacoco {
-    toolVersion = "0.8.7"
-    reportsDirectory = layout.buildDirectory.dir('JacocoReportDir') as Directory
 }
 
