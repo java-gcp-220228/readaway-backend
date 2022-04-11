@@ -1,5 +1,6 @@
 package com.revature.readawaybackend.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,8 +9,9 @@ import java.util.*;
 
 @Entity
 @Table(name = "users")
-@Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
