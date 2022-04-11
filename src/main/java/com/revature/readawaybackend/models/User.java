@@ -24,8 +24,6 @@ public class User {
     @Column(name = "email", nullable = false, length = 50)
     private String email;
 
-//    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
-//    private Set<Giveaway> entries = new HashSet<>();
 
 
 }
