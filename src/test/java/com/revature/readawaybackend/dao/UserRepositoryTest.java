@@ -9,9 +9,4 @@ public class UserRepositoryTest {
   private UserRepository userRepo;
 
   // test registration, login for user
-
-  // test get giveaways by user id when user is:
-  //creator
-  //winner
-  //entrant
 }
