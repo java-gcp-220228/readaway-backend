@@ -7,11 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
-import javax.security.auth.login.FailedLoginException;
-
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
-
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserRepositoryTest {
@@ -20,7 +15,7 @@ public class UserRepositoryTest {
 
   // test login for user
   @Test
-  public void test_UsernamePasswordPositive() {
+  void test_UsernamePasswordPositive() {
     User actual = userRepo.findByUsernameAndPassword("john_doe", "pass");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
@@ -29,7 +24,7 @@ public class UserRepositoryTest {
   }
 
   @Test
-  public void test_UsernamePasswordNegative() {
+  void test_UsernamePasswordNegative() {
     User actual = userRepo.findByUsernameAndPassword("jane_doe", "123");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
@@ -38,7 +33,7 @@ public class UserRepositoryTest {
   }
 
   @Test
-  public void test_UsernamePasswordBlankNegative() {
+  void test_UsernamePasswordBlankNegative() {
     User actual = userRepo.findByUsernameAndPassword("  ", "   ");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
