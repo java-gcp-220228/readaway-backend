@@ -248,7 +248,7 @@ public class GiveawayRepositoryTest {
         expected2.setIsbn("0987654321");
         expected2.setCreator(user);
 
-        List<Giveaway> expectedGiveaways = new ArrayList<>();
+        Set<Giveaway> expectedGiveaways = new HashSet<>();
 
         expectedGiveaways.add(expected);
         expectedGiveaways.add(expected2);
