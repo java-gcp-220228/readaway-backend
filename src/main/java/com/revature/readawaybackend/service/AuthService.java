@@ -12,4 +12,15 @@ public class AuthService {
   @Autowired
   private UserRepository userRepo;
 
+  public User login(String username, String password) throws FailedLoginException {
+    if(username.trim().equals("") || password.trim().equals("")) {
+      throw new IllegalArgumentException("Enter a username/password");
+    }
+    User user = userRepo.findByUsernameAndPassword(username.trim(), password.trim());
+
+    if(user == null) {
+      throw new FailedLoginException("Invalid information entered");
+    }
+    return user;
+  }
 }
