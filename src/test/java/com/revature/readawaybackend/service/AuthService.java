@@ -1,4 +1,4 @@
 package com.revature.readawaybackend.service;
 
-public class JwtService {
+public class AuthService {
 }
