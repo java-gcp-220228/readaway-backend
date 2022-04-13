@@ -1,6 +1,5 @@
 package com.revature.readawaybackend.service;
 
-import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.exceptions.UserExistsException;
 import com.revature.readawaybackend.models.User;
 import com.revature.readawaybackend.models.UserDTO;
@@ -8,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class UserService {
-  @Autowired
-  UserRepository userRepo;
   @Autowired
   private PasswordEncoder passwordEncoder;
   public User register(UserDTO dto) throws UserExistsException {
