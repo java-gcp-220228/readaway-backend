@@ -25,7 +25,7 @@ public class GiveawayRepositoryTest {
     public void test_getGiveawayById_validGiveawayId() {
 
         Giveaway actual = giveawayRepo.findById(1).get();
-        System.out.println(actual.getId());
+
 
 
 
@@ -90,9 +90,9 @@ public class GiveawayRepositoryTest {
 
         giveawayRepo.save(toAdd);
 
-        Giveaway actual = giveawayRepo.findById(4).get();
+        Giveaway actual = giveawayRepo.findById(9).get();
         Giveaway expected = toAdd;
-        expected.setId(4);
+        expected.setId(9);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -161,7 +161,7 @@ public class GiveawayRepositoryTest {
 
     @Test
     public void test_getAllGiveawaysWhereWinnerIsNull() {
-        List<Giveaway> actualGiveaways = giveawayRepo.findByWinnerIdIsNull();
+        Set<Giveaway> actualGiveaways = giveawayRepo.findByWinnerIsNull();
 
         User user2 = new User();
         user2.setId(2);
@@ -197,21 +197,21 @@ public class GiveawayRepositoryTest {
         expected3.setCreator(user);
 
         Giveaway expected4 = new Giveaway();
-        expected.setId(7);
-        expected.setStartTime(Timestamp.valueOf("2022-04-09 00:00:00"));
-        expected.setEndTime(Timestamp.valueOf("2022-04-09 00:00:00"));
-        expected.setIsbn("1234567890");
-        expected.setCreator(user2);
+        expected4.setId(7);
+        expected4.setStartTime(Timestamp.valueOf("2022-04-09 00:00:00"));
+        expected4.setEndTime(Timestamp.valueOf("2022-04-09 00:00:00"));
+        expected4.setIsbn("1234567890");
+        expected4.setCreator(user2);
 
         Giveaway expected5 = new Giveaway();
-        expected2.setId(8);
-        expected2.setStartTime(Timestamp.valueOf("2022-04-10 00:00:00"));
-        expected2.setEndTime(Timestamp.valueOf("2022-04-10 00:00:00"));
-        expected2.setIsbn("0987654321");
-        expected2.setCreator(user2);
+        expected5.setId(8);
+        expected5.setStartTime(Timestamp.valueOf("2022-04-10 00:00:00"));
+        expected5.setEndTime(Timestamp.valueOf("2022-04-10 00:00:00"));
+        expected5.setIsbn("0987654321");
+        expected5.setCreator(user2);
 
 
-        List<Giveaway> expectedGiveaways = new ArrayList<>();
+        Set<Giveaway> expectedGiveaways = new HashSet<>();
 
         expectedGiveaways.add(expected);
         expectedGiveaways.add(expected2);
@@ -226,7 +226,7 @@ public class GiveawayRepositoryTest {
     @Test
     public void test_getAllGiveawaysByCreatorId() {
 
-        List<Giveaway> actualGiveaways = giveawayRepo.findByCreatorId(2);
+        Set<Giveaway> actualGiveaways = giveawayRepo.findByCreatorId(2);
 
         User user = new User();
         user.setId(2);
@@ -248,7 +248,7 @@ public class GiveawayRepositoryTest {
         expected2.setIsbn("0987654321");
         expected2.setCreator(user);
 
-        List<Giveaway> expectedGiveaways = new ArrayList<>();
+        Set<Giveaway> expectedGiveaways = new HashSet<>();
 
         expectedGiveaways.add(expected);
         expectedGiveaways.add(expected2);
@@ -258,7 +258,7 @@ public class GiveawayRepositoryTest {
 
     public void test_findAllGivewaysByWinnerId() {
 
-        List<Giveaway> actualGiveaways = giveawayRepo.findByWinnerId(2);
+        Set<Giveaway> actualGiveaways = giveawayRepo.findByWinnerId(2);
 
         User user = new User();
         user.setId(2);
@@ -287,13 +287,33 @@ public class GiveawayRepositoryTest {
         expected3.setIsbn("1111111111");
         expected3.setCreator(user);
 
-        List<Giveaway> expectedGiveaways = new ArrayList<>();
+        Set<Giveaway> expectedGiveaways = new HashSet<>();
         expectedGiveaways.add(expected);
         expectedGiveaways.add(expected2);
         expectedGiveaways.add(expected3);
 
         Assertions.assertEquals(expectedGiveaways, actualGiveaways);
 
+    }
+
+    @Test
+    void test_DeleteGiveaway() {
+        User user = new User();
+        user.setId(2);
+        user.setUsername("jane_doe");
+        user.setPassword("123");
+        user.setEmail("jane_doe@email.com");
+
+        Giveaway expected = new Giveaway();
+        expected.setId(4);
+        expected.setStartTime(Timestamp.valueOf("2022-04-09 00:00:00"));
+        expected.setEndTime(Timestamp.valueOf("2022-04-09 00:00:00"));
+        expected.setIsbn("1234567890");
+        expected.setCreator(user);
+        giveawayRepo.delete(expected);
+
+
+        Assertions.assertFalse(giveawayRepo.findById(4).isPresent());
     }
 
 }
