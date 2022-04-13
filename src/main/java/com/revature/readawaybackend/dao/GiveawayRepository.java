@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+@Repository
 public interface GiveawayRepository extends JpaRepository<Giveaway, Integer> {
     // winner null
     // creator id
