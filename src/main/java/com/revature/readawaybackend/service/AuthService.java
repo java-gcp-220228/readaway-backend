@@ -23,4 +23,10 @@ public class AuthService {
     }
     return user;
   }
+
+  public User register(String email, String username, String password) {
+    //check if username exists, check if password exists
+    // if not, create a new user and add user to database
+    return null;
+  }
 }
