@@ -2,8 +2,7 @@ package com.revature.readawaybackend.service;
 
 import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.exceptions.UserExistsException;
-import com.revature.readawaybackend.models.User;
-import com.revature.readawaybackend.models.UserDTO;
+import com.revature.readawaybackend.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

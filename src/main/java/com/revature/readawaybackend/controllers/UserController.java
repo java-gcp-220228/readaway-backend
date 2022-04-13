@@ -2,12 +2,8 @@ package com.revature.readawaybackend.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.revature.readawaybackend.exceptions.UserExistsException;
-import com.revature.readawaybackend.models.LoginDTO;
-import com.revature.readawaybackend.models.User;
-import com.revature.readawaybackend.models.UserDTO;
-import com.revature.readawaybackend.service.AuthService;
-import com.revature.readawaybackend.service.JwtService;
-import com.revature.readawaybackend.service.UserService;
+import com.revature.readawaybackend.models.*;
+import com.revature.readawaybackend.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
