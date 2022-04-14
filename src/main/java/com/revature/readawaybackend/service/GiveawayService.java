@@ -1,6 +1,7 @@
 package com.revature.readawaybackend.service;
 
 import com.revature.readawaybackend.dao.GiveawayRepository;
+import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +45,15 @@ public class GiveawayService {
         giveawayRepo.save(giveaway);
         new Timer().schedule(new endGiveawayTask(giveaway.getId()), giveaway.getEndTime());
     }
-    // Generate random winner
+
+    public void addCommentToGiveaway(String giveawayId, Comment comment) {
+        int id = validateId(giveawayId);
+        Giveaway giveaway = giveawayRepo.findById(id).get();
+        giveaway.getComments().add(comment);
+        giveawayRepo.save(giveaway);
+    }
+
     private void pickRandomWinner(int giveawayId) {
-        // Call update giveawayWinner when selected
         Giveaway giveaway = giveawayRepo.findById(giveawayId).get();
         Set<User> entries = giveaway.getEntrants();
         if (entries.size() == 0) {

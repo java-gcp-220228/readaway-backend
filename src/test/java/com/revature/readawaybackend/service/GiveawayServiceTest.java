@@ -2,6 +2,7 @@ package com.revature.readawaybackend.service;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.revature.readawaybackend.dao.GiveawayRepository;
+import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
 import org.junit.jupiter.api.Assertions;
@@ -24,7 +25,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class GiveawayServiceTest {
-
 
     @Mock
     private GiveawayRepository giveawayRepository;
@@ -204,15 +204,22 @@ public class GiveawayServiceTest {
 
         Assertions.assertDoesNotThrow(() -> giveawayService.addNewGiveaway(newGiveaway));
     }
+
     @Test
     void addNewGiveawayTrimIsbn() {
         Giveaway newGiveaway = new Giveaway();
         newGiveaway.setIsbn("            2359082309580923850932");
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis() + 10000);
+
+        newGiveaway.setEndTime(timestamp);
+        Set<User> entrants = new HashSet<>();
+        newGiveaway.setEntrants(entrants);
         when(giveawayRepository.save(newGiveaway)).thenReturn(newGiveaway);
 
         Assertions.assertDoesNotThrow(() -> giveawayService.addNewGiveaway(newGiveaway));
     }
-    // Update GiveawayWinner
+
     @Test
     void updateGiveawayWinner() throws InterruptedException {
         Giveaway newGiveaway = new Giveaway();
@@ -311,5 +318,15 @@ public class GiveawayServiceTest {
 
         Thread.sleep(2000);
         Assertions.assertEquals(user, giveaway.getWinner());
+    }
+
+    @Test
+    void addCommentToGiveaway() {
+        Giveaway giveaway = new Giveaway();
+        Comment comment = new Comment();
+
+        when(giveawayRepository.findById(1)).thenReturn(Optional.of(giveaway));
+
+        Assertions.assertDoesNotThrow(() -> giveawayService.addCommentToGiveaway("1", comment));
     }
 }
