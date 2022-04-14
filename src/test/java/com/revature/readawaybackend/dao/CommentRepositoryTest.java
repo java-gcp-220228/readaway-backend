@@ -10,7 +10,9 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -61,13 +63,13 @@ public class CommentRepositoryTest {
         parent.setText("1");
         parent.setPostTime(Timestamp.valueOf("2022-04-13 00:00:00"));
         parent.setUser(user);
-        List<Comment> replies = new ArrayList<>();
+        Set<Comment> replies = new LinkedHashSet<>();
         replies.add(reply);
         parent.setReplies(replies);
 
         commentRepo.save(parent);
 
-        Comment actual = commentRepo.findById(1).get().getReplies().get(0);
+        Comment actual = commentRepo.findById(1).get().getReplies().iterator().next();
         Comment expected = reply;
         expected.setId(5);
 

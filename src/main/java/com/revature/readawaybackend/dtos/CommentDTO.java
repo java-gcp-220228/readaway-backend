@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -13,5 +14,5 @@ public class CommentDTO {
     String text;
     Timestamp postTime;
     UserDTO user;
-    List<CommentDTO> replies;
+    Set<CommentDTO> replies;
 }

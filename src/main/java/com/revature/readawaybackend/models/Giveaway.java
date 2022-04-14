@@ -4,6 +4,8 @@ package com.revature.readawaybackend.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -43,7 +45,8 @@ public class Giveaway {
 
     @JoinColumn(name = "giveaway_id")
     @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-    private List<Comment> comments = new ArrayList<>();
+    @OrderBy("post_time")
+    private Set<Comment> comments = new LinkedHashSet<>();
 
     @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(

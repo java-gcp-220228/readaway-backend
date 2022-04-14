@@ -10,10 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -236,10 +233,16 @@ public class GiveawayRepositoryTest {
         Set<Giveaway> actualGiveaways = giveawayRepo.findByWinnerId(2);
 
         User user = new User();
-        user.setId(2);
-        user.setUsername("jane_doe");
-        user.setPassword("123");
-        user.setEmail("jane_doe@email.com");
+        user.setId(1);
+        user.setUsername("john_doe");
+        user.setPassword("pass");
+        user.setEmail("john_doe@email.com");
+
+        User user2 = new User();
+        user2.setId(2);
+        user2.setUsername("jane_doe");
+        user2.setPassword("123");
+        user2.setEmail("jane_doe@email.com");
 
         Giveaway expected = new Giveaway();
         expected.setId(4);
@@ -247,6 +250,7 @@ public class GiveawayRepositoryTest {
         expected.setEndTime(Timestamp.valueOf("2022-04-09 00:00:00"));
         expected.setIsbn("1234567890");
         expected.setCreator(user);
+        expected.setWinner(user2);
 
         Giveaway expected2 = new Giveaway();
         expected2.setId(5);
@@ -254,6 +258,7 @@ public class GiveawayRepositoryTest {
         expected2.setEndTime(Timestamp.valueOf("2022-04-10 00:00:00"));
         expected2.setIsbn("0987654321");
         expected2.setCreator(user);
+        expected2.setWinner(user2);
 
         Giveaway expected3 = new Giveaway();
         expected3.setId(6);
@@ -261,6 +266,7 @@ public class GiveawayRepositoryTest {
         expected3.setEndTime(Timestamp.valueOf("2022-04-11 00:00:00"));
         expected3.setIsbn("1111111111");
         expected3.setCreator(user);
+        expected3.setWinner(user2);
 
         Set<Giveaway> expectedGiveaways = new HashSet<>();
         expectedGiveaways.add(expected);
@@ -303,7 +309,7 @@ public class GiveawayRepositoryTest {
         comment.setText("comment");
         comment.setPostTime(Timestamp.valueOf("2022-04-17 00:00:00"));
         comment.setUser(user);
-        List<Comment> comments = new ArrayList<>();
+        Set<Comment> comments = new LinkedHashSet<>();
         comments.add(comment);
 
         Giveaway giveaway = new Giveaway();
@@ -316,7 +322,7 @@ public class GiveawayRepositoryTest {
 
         giveawayRepo.save(giveaway);
 
-        Comment actual = giveawayRepo.findById(1).get().getComments().get(0);
+        Comment actual = giveawayRepo.findById(1).get().getComments().iterator().next();
         Comment expected = comment;
         expected.setId(5);
 
