@@ -66,7 +66,7 @@ public class GiveawayService {
         try {
             return Integer.parseInt(id);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Illegal Argument provided for path. Path parameter must be an integer.");
         }
     }
 
