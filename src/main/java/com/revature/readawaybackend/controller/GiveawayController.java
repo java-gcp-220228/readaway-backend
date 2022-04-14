@@ -1,7 +1,6 @@
 package com.revature.readawaybackend.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.readawaybackend.dtos.GiveawayDTO;
 import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
@@ -31,12 +30,10 @@ public class GiveawayController {
 
     @GetMapping("/giveaways/{giveaway_id}")
     public ResponseEntity<?> getById(@PathVariable("giveaway_id") String id) throws JsonProcessingException {
-
         try {
             Giveaway giveaway = giveawayService.getGiveawayById(id);
             GiveawayDTO dto = modelMapper.map(giveaway, GiveawayDTO.class);
-            String json = new ObjectMapper().writeValueAsString(dto);
-            return ResponseEntity.ok().body(json);
+            return ResponseEntity.ok().body(dto);
         } catch (HttpClientErrorException e) {
             return ResponseEntity.status(404).body(e.getMessage());
         } catch (IllegalArgumentException e) {
@@ -53,8 +50,7 @@ public class GiveawayController {
             for (Giveaway giveaway: giveaways) {
                 dtos.add(modelMapper.map(giveaway, GiveawayDTO.class));
             }
-            String json = new ObjectMapper().writeValueAsString(dtos);
-            return ResponseEntity.ok().body(json);
+            return ResponseEntity.ok().body(dtos);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(e.getMessage());
         }
@@ -69,8 +65,7 @@ public class GiveawayController {
             for (Giveaway giveaway: giveaways) {
                 dtos.add(modelMapper.map(giveaway, GiveawayDTO.class));
             }
-            String json = new ObjectMapper().writeValueAsString(dtos);
-            return ResponseEntity.ok().body(json);
+            return ResponseEntity.ok().body(dtos);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(e.getMessage());
         }
@@ -85,8 +80,7 @@ public class GiveawayController {
         for (Giveaway giveaway: giveaways) {
             dtos.add(modelMapper.map(giveaway, GiveawayDTO.class));
         }
-        String json = new ObjectMapper().writeValueAsString(dtos);
-        return ResponseEntity.ok().body(json);
+        return ResponseEntity.ok().body(dtos);
     }
 
     @PostMapping("/giveaways")

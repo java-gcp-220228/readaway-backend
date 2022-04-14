@@ -22,11 +22,9 @@ public class Giveaway {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "start_time", nullable = false)
     private Timestamp startTime;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "end_time", nullable = false)
     private Timestamp endTime;
 

@@ -27,7 +27,6 @@ public class Comment {
     @Column(name = "text", nullable = false)
     private String text;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "post_time", nullable = false)
     private Timestamp postTime;
 

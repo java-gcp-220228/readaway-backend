@@ -5,12 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.readawaybackend.dtos.CommentDTO;
 import com.revature.readawaybackend.dtos.GiveawayDTO;
 import com.revature.readawaybackend.dtos.UserDTO;
-import com.revature.readawaybackend.models.Giveaway;
-import com.revature.readawaybackend.models.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -34,6 +32,13 @@ public class GiveawayControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    private ObjectMapper mapper = new ObjectMapper();
+
+    @BeforeAll
+    void setup() {
+        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss"));
+    }
 
     @Test
     void test_GetGiveawayByValidId() throws Exception {
@@ -54,7 +59,7 @@ public class GiveawayControllerTest {
         Set<CommentDTO> comments = new LinkedHashSet<>();
         expected.setComments(comments);
 
-        String expectedJSON = new ObjectMapper().writeValueAsString(expected);
+        String expectedJSON = mapper.writeValueAsString(expected);
 
         this.mockMvc.perform(get("/giveaways/{giveaway_id}", "1"))
                 .andExpect(status().is(200))
@@ -108,7 +113,7 @@ public class GiveawayControllerTest {
         expectedGiveaways.add(expected);
         expectedGiveaways.add(expected2);
 
-        String expectedJSON = (new ObjectMapper()).writeValueAsString(expectedGiveaways);
+        String expectedJSON = mapper.writeValueAsString(expectedGiveaways);
         this.mockMvc.perform(get("/users/{user_id}/giveaways", 2))
                 .andExpect(status().is(200))
                 .andExpect(content().json(expectedJSON));
@@ -171,7 +176,7 @@ public class GiveawayControllerTest {
         expectedGiveaways.add(expected3);
 
 
-        String expectedJSON = (new ObjectMapper()).writeValueAsString(expectedGiveaways);
+        String expectedJSON = mapper.writeValueAsString(expectedGiveaways);
         this.mockMvc.perform(get("/giveaways/winners/{user_id}", 2))
                 .andExpect(status().is(200))
                 .andExpect(content().json(expectedJSON));
@@ -252,7 +257,7 @@ public class GiveawayControllerTest {
         expectedGiveaways.add(expected4);
         expectedGiveaways.add(expected5);
 
-        String expectedJSON = new ObjectMapper().writeValueAsString(expectedGiveaways);
+        String expectedJSON = mapper.writeValueAsString(expectedGiveaways);
 
         this.mockMvc.perform(get("/giveaways"))
                 .andExpect(status().is(200))
