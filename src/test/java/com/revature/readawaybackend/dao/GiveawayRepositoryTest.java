@@ -1,5 +1,6 @@
 package com.revature.readawaybackend.dao;
 
+import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
 import org.junit.jupiter.api.Assertions;
@@ -9,7 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @SpringBootTest
@@ -24,10 +27,6 @@ public class GiveawayRepositoryTest {
 
         Giveaway actual = giveawayRepo.findById(1).get();
 
-
-
-
-
         User user = new User();
         user.setId(1);
         user.setUsername("john_doe");
@@ -41,7 +40,6 @@ public class GiveawayRepositoryTest {
         expected.setIsbn("1234567890");
         expected.setCreator(user);
 
-
         Assertions.assertEquals(expected, actual);
     }
 
@@ -49,28 +47,6 @@ public class GiveawayRepositoryTest {
     public void test_getGiveawayById_invalidId() {
        Assertions.assertFalse(giveawayRepo.findById(500).isPresent());
     }
-
-//    @Test
-//    public void test_getAllGiveaways() {
-//
-//        List<Giveaway> actual = giveawayRepo.findAll();
-//
-//        User user = new User();
-//        user.setId(1);
-//        user.setUsername("john_doe");
-//        user.setPassword("pass");
-//        user.setEmail("john_doe@email.com");
-//
-//        Giveaway expected = new Giveaway();
-//        expected.setId(1);
-//        expected.setStartTime(Timestamp.valueOf("2022-04-09 00:00:00"));
-//        expected.setEndTime(Timestamp.valueOf("2022-04-09 00:00:00"));
-//        expected.setIsbn("1234567890");
-//        expected.setCreator(user);
-//
-//        Assertions.assertEquals(3, actual.size());
-//        Assertions.assertEquals(expected, actual.get(0));
-//    }
 
     @Test
     public void test_AddGiveaway() {
@@ -88,9 +64,9 @@ public class GiveawayRepositoryTest {
 
         giveawayRepo.save(toAdd);
 
-        Giveaway actual = giveawayRepo.findById(9).get();
+        Giveaway actual = giveawayRepo.findById(10).get();
         Giveaway expected = toAdd;
-        expected.setId(9);
+        expected.setId(10);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -254,6 +230,7 @@ public class GiveawayRepositoryTest {
         Assertions.assertEquals(expectedGiveaways, actualGiveaways);
     }
 
+    @Test
     public void test_findAllGivewaysByWinnerId() {
 
         Set<Giveaway> actualGiveaways = giveawayRepo.findByWinnerId(2);
@@ -312,6 +289,38 @@ public class GiveawayRepositoryTest {
 
 
         Assertions.assertFalse(giveawayRepo.findById(4).isPresent());
+    }
+
+    @Test
+    void test_addCommentToGiveaway() {
+        User user = new User();
+        user.setId(1);
+        user.setUsername("john_doe");
+        user.setPassword("pass");
+        user.setEmail("john_doe@email.com");
+
+        Comment comment = new Comment();
+        comment.setText("comment");
+        comment.setPostTime(Timestamp.valueOf("2022-04-17 00:00:00"));
+        comment.setUser(user);
+        List<Comment> comments = new ArrayList<>();
+        comments.add(comment);
+
+        Giveaway giveaway = new Giveaway();
+        giveaway.setId(1);
+        giveaway.setStartTime(Timestamp.valueOf("2022-04-09 00:00:00"));
+        giveaway.setEndTime(Timestamp.valueOf("2022-04-09 00:00:00"));
+        giveaway.setIsbn("1234567890");
+        giveaway.setCreator(user);
+        giveaway.setComments(comments);
+
+        giveawayRepo.save(giveaway);
+
+        Comment actual = giveawayRepo.findById(1).get().getComments().get(0);
+        Comment expected = comment;
+        expected.setId(5);
+
+        Assertions.assertEquals(expected, actual);
     }
 
 }

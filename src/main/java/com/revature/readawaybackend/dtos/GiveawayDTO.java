@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -15,5 +16,6 @@ public class GiveawayDTO {
     String isbn;
     UserDTO creator;
     UserDTO winner;
+    List<CommentDTO> comments;
     Set<UserDTO> entrants;
 }

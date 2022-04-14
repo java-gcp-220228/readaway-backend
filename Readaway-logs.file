@@ -28913,3 +28913,259 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 13 04 2022 - 18:39:29.487 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 13 04 2022 - 18:39:29.498 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 13 04 2022 - 18:39:29.504 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13 04 2022 - 21:11:43.996 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.revature.readawaybackend.dao.CommentRepositoryTest], using SpringBootContextLoader
+13 04 2022 - 21:11:44.013 [Test worker] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.revature.readawaybackend.dao.CommentRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+13 04 2022 - 21:11:44.016 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.revature.readawaybackend.dao.CommentRepositoryTest]: CommentRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13 04 2022 - 21:11:44.255 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.revature.readawaybackend.ReadawayBackendApplication for test class com.revature.readawaybackend.dao.CommentRepositoryTest
+13 04 2022 - 21:11:44.548 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13 04 2022 - 21:11:44.597 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7d0f8483, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ce9b8e8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@188d728f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6f215d4c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6e0bf7b7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fa43c66, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1cce2217, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@79e0d7ff, org.springframework.test.context.event.EventPublishingTestExecutionListener@48e7313b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6ee734d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6b5d371d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@14fd4aa6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@65e2dfeb, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@10e3ac01, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@128484df]
+13 04 2022 - 21:11:45.049 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Starting CommentRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 15188 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:11:45.050 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:11:45.982 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:11:46.086 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 91 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:11:46.854 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:11:46.970 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+13 04 2022 - 21:11:47.260 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13 04 2022 - 21:11:47.445 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13 04 2022 - 21:11:47.754 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13 04 2022 - 21:11:47.785 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:11:48.935 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:11:48.947 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:49.721 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:11:50.061 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:11:50.491 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Started CommentRepositoryTest in 5.815 seconds (JVM running for 8.064)
+13 04 2022 - 21:11:50.518 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:50.520 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13 04 2022 - 21:11:50.523 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13 04 2022 - 21:11:50.553 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Starting CommentRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 15188 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:11:50.554 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:11:50.742 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:11:50.754 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:11:50.910 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:11:50.917 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+13 04 2022 - 21:11:50.921 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+13 04 2022 - 21:11:50.921 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:11:51.016 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:11:51.019 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:51.226 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:11:51.381 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:11:51.621 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Started CommentRepositoryTest in 1.096 seconds (JVM running for 9.195)
+13 04 2022 - 21:11:51.859 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:51.861 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+13 04 2022 - 21:11:51.865 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+13 04 2022 - 21:11:51.908 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Starting CommentRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 15188 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:11:51.909 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:11:52.102 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:11:52.115 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:11:52.232 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:11:52.238 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+13 04 2022 - 21:11:52.242 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+13 04 2022 - 21:11:52.243 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:11:52.366 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:11:52.366 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:52.540 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:11:52.670 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:11:52.921 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Started CommentRepositoryTest in 1.049 seconds (JVM running for 10.494)
+13 04 2022 - 21:11:52.933 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:52.934 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+13 04 2022 - 21:11:52.939 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+13 04 2022 - 21:11:52.983 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Starting CommentRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 15188 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:11:52.983 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:11:53.170 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:11:53.183 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:11:53.296 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:11:53.301 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+13 04 2022 - 21:11:53.302 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+13 04 2022 - 21:11:53.302 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:11:53.397 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:11:53.398 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:53.634 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:11:53.750 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:11:53.969 [Test worker] INFO  c.r.r.dao.CommentRepositoryTest - Started CommentRepositoryTest in 1.029 seconds (JVM running for 11.543)
+13 04 2022 - 21:11:54.081 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:11:54.086 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+13 04 2022 - 21:11:54.091 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+13 04 2022 - 21:20:22.207 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.revature.readawaybackend.dao.GiveawayRepositoryTest], using SpringBootContextLoader
+13 04 2022 - 21:20:22.228 [Test worker] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.revature.readawaybackend.dao.GiveawayRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+13 04 2022 - 21:20:22.231 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.revature.readawaybackend.dao.GiveawayRepositoryTest]: GiveawayRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13 04 2022 - 21:20:22.417 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.revature.readawaybackend.ReadawayBackendApplication for test class com.revature.readawaybackend.dao.GiveawayRepositoryTest
+13 04 2022 - 21:20:22.611 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13 04 2022 - 21:20:22.641 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5614b4c4, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@79ed0d3d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1f5721cc, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@15227978, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@66e34d8c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@77f63088, org.springframework.test.context.transaction.TransactionalTestExecutionListener@518926fb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57e67c0b, org.springframework.test.context.event.EventPublishingTestExecutionListener@2b95c456, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6d21c3dc, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@75879e7d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1165a2e2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@145763ec, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@778b6d99, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3e366163]
+13 04 2022 - 21:20:23.094 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:23.095 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:24.006 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:24.112 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:24.818 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:24.925 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+13 04 2022 - 21:20:25.208 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+13 04 2022 - 21:20:25.489 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13 04 2022 - 21:20:25.829 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13 04 2022 - 21:20:25.854 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:26.955 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:26.968 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:27.794 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:28.154 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:28.599 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 5.901 seconds (JVM running for 7.885)
+13 04 2022 - 21:20:28.632 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:28.634 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13 04 2022 - 21:20:28.641 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13 04 2022 - 21:20:28.676 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:28.677 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:28.865 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:28.881 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:29.037 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:29.044 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+13 04 2022 - 21:20:29.045 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+13 04 2022 - 21:20:29.046 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:29.216 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:29.217 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:29.437 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:29.546 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:29.784 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.141 seconds (JVM running for 9.07)
+13 04 2022 - 21:20:30.163 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:30.163 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+13 04 2022 - 21:20:30.169 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+13 04 2022 - 21:20:30.288 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:30.291 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:30.544 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:30.636 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:30.903 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:30.926 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+13 04 2022 - 21:20:30.938 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+13 04 2022 - 21:20:30.946 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:31.126 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:31.127 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:31.550 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:31.712 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:32.004 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.833 seconds (JVM running for 11.29)
+13 04 2022 - 21:20:32.089 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:32.090 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+13 04 2022 - 21:20:32.096 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+13 04 2022 - 21:20:32.140 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:32.140 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:32.507 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:32.520 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:32.697 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:32.710 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+13 04 2022 - 21:20:32.715 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+13 04 2022 - 21:20:32.715 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:33.034 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:33.034 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:33.601 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:34.105 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:34.449 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 2.35 seconds (JVM running for 13.735)
+13 04 2022 - 21:20:34.696 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:34.696 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+13 04 2022 - 21:20:34.709 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+13 04 2022 - 21:20:34.742 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:34.743 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:34.902 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:34.914 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:35.036 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:35.042 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+13 04 2022 - 21:20:35.043 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+13 04 2022 - 21:20:35.043 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:35.118 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:35.118 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:35.558 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:35.949 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:36.295 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.584 seconds (JVM running for 15.582)
+13 04 2022 - 21:20:36.334 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:36.336 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+13 04 2022 - 21:20:36.347 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+13 04 2022 - 21:20:36.526 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:36.537 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:36.703 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:36.716 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:36.835 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:36.844 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+13 04 2022 - 21:20:36.845 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+13 04 2022 - 21:20:36.845 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:36.944 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:36.946 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:37.214 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:37.346 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:37.644 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.294 seconds (JVM running for 16.929)
+13 04 2022 - 21:20:37.665 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:37.665 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+13 04 2022 - 21:20:37.670 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+13 04 2022 - 21:20:37.710 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:37.710 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:37.877 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:37.890 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:38.039 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:38.050 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+13 04 2022 - 21:20:38.051 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+13 04 2022 - 21:20:38.051 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:38.276 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:38.277 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:38.558 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:38.664 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:38.928 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.257 seconds (JVM running for 18.213)
+13 04 2022 - 21:20:38.989 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:38.990 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+13 04 2022 - 21:20:38.992 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+13 04 2022 - 21:20:39.043 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:39.045 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:39.252 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:39.266 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:39.418 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:39.432 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+13 04 2022 - 21:20:39.433 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+13 04 2022 - 21:20:39.435 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:39.523 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:39.523 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:39.715 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:39.819 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:40.072 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.077 seconds (JVM running for 19.358)
+13 04 2022 - 21:20:40.101 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:40.101 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+13 04 2022 - 21:20:40.103 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+13 04 2022 - 21:20:40.128 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:40.128 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:40.289 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:40.314 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:40.503 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:40.510 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+13 04 2022 - 21:20:40.511 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+13 04 2022 - 21:20:40.511 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:40.574 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:40.575 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:40.754 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:40.871 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:41.154 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.05 seconds (JVM running for 20.44)
+13 04 2022 - 21:20:41.183 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:41.184 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown initiated...
+13 04 2022 - 21:20:41.189 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown completed.
+13 04 2022 - 21:20:41.229 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:41.229 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:41.552 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:41.569 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:41.775 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:41.781 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Starting...
+13 04 2022 - 21:20:41.785 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Start completed.
+13 04 2022 - 21:20:41.785 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:42.025 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:42.025 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:42.194 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:42.298 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:42.484 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 1.284 seconds (JVM running for 21.769)
+13 04 2022 - 21:20:42.503 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:42.504 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown initiated...
+13 04 2022 - 21:20:42.506 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown completed.
+13 04 2022 - 21:20:42.531 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Starting GiveawayRepositoryTest using Java 1.8.0_321 on DESKTOP-2SHPP6S with PID 6444 (started by jodh_ in C:\Users\jodh_\IdeaProjects\readaway-backend)
+13 04 2022 - 21:20:42.531 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+13 04 2022 - 21:20:42.703 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13 04 2022 - 21:20:42.714 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 2 JPA repository interfaces.
+13 04 2022 - 21:20:42.807 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13 04 2022 - 21:20:42.813 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Starting...
+13 04 2022 - 21:20:42.813 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Start completed.
+13 04 2022 - 21:20:42.813 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13 04 2022 - 21:20:42.864 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13 04 2022 - 21:20:42.864 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:43.007 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13 04 2022 - 21:20:43.090 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+13 04 2022 - 21:20:43.272 [Test worker] INFO  c.r.r.dao.GiveawayRepositoryTest - Started GiveawayRepositoryTest in 0.763 seconds (JVM running for 22.557)
+13 04 2022 - 21:20:43.289 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13 04 2022 - 21:20:43.290 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown initiated...
+13 04 2022 - 21:20:43.292 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown completed.
