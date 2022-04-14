@@ -16,6 +16,6 @@ public class GiveawayDTO {
     String isbn;
     UserDTO creator;
     UserDTO winner;
-    List<CommentDTO> comments;
+    Set<CommentDTO> comments;
     Set<UserDTO> entrants;
 }
