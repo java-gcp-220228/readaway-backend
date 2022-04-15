@@ -3807,3 +3807,52 @@ org.postgresql.util.PSQLException: ERROR: value too long for type character vary
 15 04 2022 - 17:36:35.049 [http-nio-8081-exec-1] WARN  c.r.r.aspect.LoggingAspect - Exception: Invalid information entered
 15 04 2022 - 17:36:35.049 [http-nio-8081-exec-1] INFO  c.r.r.aspect.LoggingAspect - After method: User com.revature.readawaybackend.service.AuthService.login(String,String)
 15 04 2022 - 17:36:35.051 [http-nio-8081-exec-1] INFO  c.r.r.aspect.LoggingAspect - After method: ResponseEntity com.revature.readawaybackend.controller.UserController.login(LoginDTO)
+15 04 2022 - 17:38:02.400 [restartedMain] INFO  c.r.r.ReadawayBackendApplication - Starting ReadawayBackendApplication using Java 1.8.0_321 on LAPTOP-B4F7R92J with PID 9088 (C:\Users\hitom\Projects\Revature\readaway-backend\build\classes\java\main started by hitom in C:\Users\hitom\Projects\Revature\readaway-backend)
+15 04 2022 - 17:38:02.404 [restartedMain] INFO  c.r.r.ReadawayBackendApplication - No active profile set, falling back to 1 default profile: "default"
+15 04 2022 - 17:38:02.463 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15 04 2022 - 17:38:02.463 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15 04 2022 - 17:38:03.171 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15 04 2022 - 17:38:03.250 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 3 JPA repository interfaces.
+15 04 2022 - 17:38:04.507 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+15 04 2022 - 17:38:04.556 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+15 04 2022 - 17:38:04.557 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15 04 2022 - 17:38:04.557 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.60]
+15 04 2022 - 17:38:04.636 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15 04 2022 - 17:38:04.636 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2172 ms
+15 04 2022 - 17:38:04.691 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15 04 2022 - 17:38:05.197 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15 04 2022 - 17:38:05.207 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/postgres'
+15 04 2022 - 17:38:05.468 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15 04 2022 - 17:38:05.553 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.7.Final
+15 04 2022 - 17:38:05.869 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+15 04 2022 - 17:38:06.040 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+15 04 2022 - 17:38:06.907 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+15 04 2022 - 17:38:06.920 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15 04 2022 - 17:38:08.055 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15 04 2022 - 17:38:08.647 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15 04 2022 - 17:38:08.661 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+15 04 2022 - 17:38:08.680 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+15 04 2022 - 17:38:08.688 [restartedMain] INFO  c.r.r.ReadawayBackendApplication - Started ReadawayBackendApplication in 6.699 seconds (JVM running for 7.263)
+15 04 2022 - 17:38:12.189 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15 04 2022 - 17:38:12.190 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15 04 2022 - 17:38:12.191 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+15 04 2022 - 17:38:12.314 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - Before method: ResponseEntity com.revature.readawaybackend.controller.UserController.register(RegisterDTO)
+15 04 2022 - 17:38:12.320 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - Before method: User com.revature.readawaybackend.service.UserService.register(RegisterDTO)
+15 04 2022 - 17:38:12.325 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - Before method: User com.revature.readawaybackend.dao.UserRepository.findByEmail(String)
+15 04 2022 - 17:38:12.490 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - After method: User com.revature.readawaybackend.dao.UserRepository.findByEmail(String)
+15 04 2022 - 17:38:12.491 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - Before method: User com.revature.readawaybackend.dao.UserRepository.findByUsername(String)
+15 04 2022 - 17:38:12.495 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - After method: User com.revature.readawaybackend.dao.UserRepository.findByUsername(String)
+15 04 2022 - 17:38:12.499 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - Before method: Object org.springframework.data.jpa.repository.JpaRepository.saveAndFlush(Object)
+15 04 2022 - 17:38:12.567 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - After method: Object org.springframework.data.jpa.repository.JpaRepository.saveAndFlush(Object)
+15 04 2022 - 17:38:12.567 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - After method: User com.revature.readawaybackend.service.UserService.register(RegisterDTO)
+15 04 2022 - 17:38:12.567 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - Before method: String com.revature.readawaybackend.service.JwtService.createJwt(User)
+15 04 2022 - 17:38:12.640 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - After method: String com.revature.readawaybackend.service.JwtService.createJwt(User)
+15 04 2022 - 17:38:12.643 [http-nio-8081-exec-2] INFO  c.r.r.aspect.LoggingAspect - After method: ResponseEntity com.revature.readawaybackend.controller.UserController.register(RegisterDTO)
+15 04 2022 - 17:38:15.867 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - Before method: ResponseEntity com.revature.readawaybackend.controller.UserController.login(LoginDTO)
+15 04 2022 - 17:38:15.867 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - Before method: User com.revature.readawaybackend.service.AuthService.login(String,String)
+15 04 2022 - 17:38:15.871 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - Before method: User com.revature.readawaybackend.dao.UserRepository.findByUsernameAndPassword(String,String)
+15 04 2022 - 17:38:15.884 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - After method: User com.revature.readawaybackend.dao.UserRepository.findByUsernameAndPassword(String,String)
+15 04 2022 - 17:38:15.884 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - After method: User com.revature.readawaybackend.service.AuthService.login(String,String)
+15 04 2022 - 17:38:15.884 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - Before method: String com.revature.readawaybackend.service.JwtService.createJwt(User)
+15 04 2022 - 17:38:15.887 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - After method: String com.revature.readawaybackend.service.JwtService.createJwt(User)
+15 04 2022 - 17:38:15.887 [http-nio-8081-exec-3] INFO  c.r.r.aspect.LoggingAspect - After method: ResponseEntity com.revature.readawaybackend.controller.UserController.login(LoginDTO)

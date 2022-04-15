@@ -14,7 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+class UserServiceTest {
   @Mock
   UserRepository userRepo;
 
@@ -35,7 +35,6 @@ public class UserServiceTest {
 
     Assertions.assertNotNull(user);
     Assertions.assertEquals(email, user.getEmail());
-    Assertions.assertNotNull(user.getId());
   }
 
   @Test

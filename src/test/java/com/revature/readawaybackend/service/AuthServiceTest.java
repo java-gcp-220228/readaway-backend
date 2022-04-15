@@ -16,7 +16,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class AuthServiceTest {
+class AuthServiceTest {
   @Mock
   private UserRepository userRepo;
 
@@ -31,7 +31,7 @@ public class AuthServiceTest {
     mockUser.setUsername("test");
     mockUser.setPassword("password");
 
-    when(userRepo.findByUsernameAndPassword(eq("test"), eq("password"))).thenReturn(mockUser);
+    when(userRepo.findByUsernameAndPassword("test", "password")).thenReturn(mockUser);
 
     User actual = authService.login("test", "password");
     User expected = new User(20, "test", "password", "test@test.com");
@@ -39,8 +39,8 @@ public class AuthServiceTest {
     Assertions.assertEquals(expected, actual);
   }
 
-  @Test
-  void test_loginValidNegative() throws FailedLoginException {
-
-  }
+//  @Test
+//  void test_loginValidNegative() throws FailedLoginException {
+//
+//  }
 }
