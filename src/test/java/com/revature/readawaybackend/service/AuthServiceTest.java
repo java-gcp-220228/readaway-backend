@@ -41,6 +41,6 @@ class AuthServiceTest {
 
 //  @Test
 //  void test_loginValidNegative() throws FailedLoginException {
-//
+//  test that login fails when incorrect information is given
 //  }
 }
