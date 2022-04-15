@@ -5,7 +5,7 @@ RUN gradle build --no-daemon
 
 FROM openjdk:8-jre-slim
 
-EXPOSE 8080
+EXPOSE 8081
 
 RUN mkdir /app
 COPY --from=build /home/gradle/src/build/libs/readaway-backend-0.0.1-SNAPSHOT.jar /app/spring-boot-application.jar
