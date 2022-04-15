@@ -8,5 +8,5 @@ FROM openjdk:8-jre-slim
 EXPOSE 808
 
 RUN mkdir /app
-COPY --from=build /home/gradle/srce/build/libs/readaway-backend-0.0.1-SNAPSHOT.jar /app/spring-boot-application.jar
+COPY --from=build /home/gradle/src/build/libs/readaway-backend-0.0.1-SNAPSHOT.jar /app/spring-boot-application.jar
 ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/spring-boot-application.jar"]
