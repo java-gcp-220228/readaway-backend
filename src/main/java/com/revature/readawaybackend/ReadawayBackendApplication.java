@@ -14,9 +14,8 @@ public class ReadawayBackendApplication extends SpringBootServletInitializer{
 		return new ModelMapper();
 	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReadawayBackendApplication.class, args);
-		new GiveawayService().serverRestartScheduleGiveaways();
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(ReadawayBackendApplication.class, args);
+  }
 
 }

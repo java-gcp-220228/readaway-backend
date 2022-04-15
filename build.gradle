@@ -1,9 +1,9 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
-    id "org.sonarqube" version "3.3"
-    id 'jacoco'
+  id 'org.springframework.boot' version '2.6.6'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
+  id "org.sonarqube" version "3.3"
+  id 'jacoco'
 }
 
 group = 'com.revature'
@@ -11,77 +11,80 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+  compileOnly {
+    extendsFrom annotationProcessor
+  }
 }
 
 repositories {
-	mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-tomcat:2.6.6'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.modelmapper:modelmapper:3.1.0'
-    compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'org.springframework.boot:spring-boot-starter-aop:2.6.6'
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'org.modelmapper:modelmapper:3.1.0'
+  compileOnly 'org.projectlombok:lombok'
+  developmentOnly 'org.springframework.boot:spring-boot-devtools'
+  runtimeOnly 'com.h2database:h2'
+  runtimeOnly 'org.postgresql:postgresql'
+  annotationProcessor 'org.projectlombok:lombok'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  implementation 'org.springframework.boot:spring-boot-starter-aop:2.6.6'
 
+  implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+  implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+  implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+
+  implementation 'org.mindrot:jbcrypt:0.4'
 }
 
 jar {
-    manifest {
-        attributes 'Main-Class': 'com.revature.readawaybackend.ReadawayBackendApplication'
-    }
+  manifest {
+    attributes 'Main-Class': 'com.revature.main.Driver'
+  }
 
-    from {
-        (configurations.runtimeClasspath).collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
+  from {
+    (configurations.runtimeClasspath).collect {
+      it.isDirectory() ? it : zipTree(it)
     }
+  }
 
-    duplicatesStrategy 'exclude'
+  duplicatesStrategy 'exclude'
 }
 
 
-
 jacocoTestReport {
-    dependsOn test
-    reports {
+  dependsOn test
+  reports {
 
-        xml.required = true
+    xml.required = true
 
-        xml.required = false
+    xml.required = false
 
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-    }
+    csv.required = false
+    html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+  }
 }
 
 
 jacoco {
-    toolVersion = "0.8.7"
-    reportsDirectory = file("$buildDir/jacoco")
+  toolVersion = "0.8.7"
+  reportsDirectory = file("$buildDir/jacoco")
 }
 test {
-    useJUnitPlatform()
-    finalizedBy jacocoTestReport
+  useJUnitPlatform()
+  finalizedBy jacocoTestReport
 }
 
 sonarqube {
-    properties {
-        property "sonar.projectKey", "java-gcp-220228_readaway-backend"
-        property "sonar.organization", "java-gcp-220228"
-        property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.coverage.jacoco.xmlReportPath", "$buildDir/jacoco/test/jacocoTestReport.xml"
-        property "sonar.coverage.exclusions", "**/com/revature/model/*, **/com/revature/dao/*, **/com/revature/exception/*, " +
-                "**/com/revature/controller/*, **/com/revature/dto/*, **/com/revature/main/*, **/com/revature/utility/*"
-    }
+  properties {
+    property "sonar.projectKey", "java-gcp-220228_readaway-backend"
+    property "sonar.organization", "java-gcp-220228"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.coverage.jacoco.xmlReportPath", "$buildDir/jacoco/test/jacocoTestReport.xml"
+    property "sonar.coverage.exclusions", "**/com/revature/model/*, **/com/revature/dao/*, **/com/revature/exception/*, " +
+        "**/com/revature/controller/*, **/com/revature/dto/*, **/com/revature/main/*, **/com/revature/utility/*"
+  }
 }
 

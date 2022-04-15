@@ -9,9 +9,9 @@ import java.util.Set;
 @Repository
 public interface GiveawayRepository extends JpaRepository<Giveaway, Integer> {
 
-    public abstract Set<Giveaway> findByWinnerIsNull();
+  public abstract Set<Giveaway> findByWinnerIsNull();
 
-    public abstract Set<Giveaway> findByCreatorId(int creatorId);
+  public abstract Set<Giveaway> findByCreatorId(int creatorId);
 
-    public abstract Set<Giveaway> findByWinnerId(int winnerId);
+  public abstract Set<Giveaway> findByWinnerId(int winnerId);
 }
