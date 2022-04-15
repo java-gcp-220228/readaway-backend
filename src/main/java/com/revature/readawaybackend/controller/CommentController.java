@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(originPatterns = "*", exposedHeaders = "*", allowedHeaders = "*")
 public class CommentController {
 
-    @Autowired
-    private CommentService commentService;
+  @Autowired
+  private CommentService commentService;
 
-    @PostMapping("/comments/{comment_id}/replies")
-    public ResponseEntity<?> addCommentAsReply(@PathVariable("comment_id") String id, @RequestBody Comment comment, @RequestHeader("Authorization") String headerValue) {
-        String jwt = headerValue.split(" ")[1];
-        commentService.addCommentAsReply(id, comment);
-        return ResponseEntity.ok("");
-    }
+  @PostMapping("/comments/{comment_id}/replies")
+  public ResponseEntity<?> addCommentAsReply(@PathVariable("comment_id") String id, @RequestBody Comment comment, @RequestHeader("Authorization") String headerValue) {
+    String jwt = headerValue.split(" ")[1];
+    commentService.addCommentAsReply(id, comment);
+    return ResponseEntity.ok("");
+  }
 }

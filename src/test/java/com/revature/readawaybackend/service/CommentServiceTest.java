@@ -16,26 +16,26 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class CommentServiceTest {
 
-    @Mock
-    private CommentRepository commentRepository;
+  @Mock
+  private CommentRepository commentRepository;
 
-    @InjectMocks
-    private CommentService commentService;
+  @InjectMocks
+  private CommentService commentService;
 
-    @Test
-    void addCommentAsReply() {
-        Comment parent = new Comment();
-        Comment reply = new Comment();
+  @Test
+  void addCommentAsReply() {
+    Comment parent = new Comment();
+    Comment reply = new Comment();
 
-        when(commentRepository.findById(1)).thenReturn(Optional.of(parent));
+    when(commentRepository.findById(1)).thenReturn(Optional.of(parent));
 
-        Assertions.assertDoesNotThrow(() -> commentService.addCommentAsReply("1", reply));
-    }
+    Assertions.assertDoesNotThrow(() -> commentService.addCommentAsReply("1", reply));
+  }
 
-    @Test
-    void addCommentAsReply_invalidParentId() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            commentService.addCommentAsReply("abc", null);
-        });
-    }
+  @Test
+  void addCommentAsReply_invalidParentId() {
+    Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      commentService.addCommentAsReply("abc", null);
+    });
+  }
 }

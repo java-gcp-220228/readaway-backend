@@ -20,10 +20,10 @@ public class UserService {
   }
 
   public User register(RegisterDTO dto) throws UserExistsException {
-    if(emailExists(dto.getEmail())) {
+    if (emailExists(dto.getEmail())) {
       throw new UserExistsException("An account exists with email address " + dto.getEmail());
     }
-    if(userExists(dto.getUsername())) {
+    if (userExists(dto.getUsername())) {
       throw new UserExistsException("An account exists with username " + dto.getUsername());
     }
 

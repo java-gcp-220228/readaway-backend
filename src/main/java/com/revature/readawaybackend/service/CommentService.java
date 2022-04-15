@@ -10,22 +10,22 @@ import java.sql.Timestamp;
 @Service
 public class CommentService {
 
-    @Autowired
-    CommentRepository commentRepo;
+  @Autowired
+  CommentRepository commentRepo;
 
-    public void addCommentAsReply(String parentId, Comment reply) {
-        int id = validateId(parentId);
-        Comment parent = commentRepo.findById(id).get();
-        reply.setPostTime(new Timestamp(System.currentTimeMillis()));
-        parent.getReplies().add(reply);
-        commentRepo.save(parent);
-    }
+  public void addCommentAsReply(String parentId, Comment reply) {
+    int id = validateId(parentId);
+    Comment parent = commentRepo.findById(id).get();
+    reply.setPostTime(new Timestamp(System.currentTimeMillis()));
+    parent.getReplies().add(reply);
+    commentRepo.save(parent);
+  }
 
-    private int validateId(String id) {
-        try {
-            return Integer.parseInt(id);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Illegal Argument provided for path. Path parameter must be an integer.");
-        }
+  private int validateId(String id) {
+    try {
+      return Integer.parseInt(id);
+    } catch (NumberFormatException e) {
+      throw new IllegalArgumentException("Illegal Argument provided for path. Path parameter must be an integer.");
     }
+  }
 }

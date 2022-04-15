@@ -37,7 +37,7 @@ public class UserControllerTest {
     String expectedJson = (new ObjectMapper()).writeValueAsString(expected);
 
     this.mockMvc.perform(
-        post("/login").contentType(MediaType.APPLICATION_JSON).content(jsonDto))
+            post("/login").contentType(MediaType.APPLICATION_JSON).content(jsonDto))
         .andExpect(status().is(200))
         .andExpect(content().json(expectedJson));
   }
