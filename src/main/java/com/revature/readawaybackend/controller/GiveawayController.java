@@ -1,8 +1,8 @@
 package com.revature.readawaybackend.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.readawaybackend.dtos.GiveawayDTO;
+import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.service.GiveawayService;
 import org.modelmapper.ModelMapper;
@@ -28,15 +28,12 @@ public class GiveawayController {
     // @Autowired
     // JWTService jwtService;
 
-    // Get By Id
     @GetMapping("/giveaways/{giveaway_id}")
     public ResponseEntity<?> getById(@PathVariable("giveaway_id") String id) throws JsonProcessingException {
-
         try {
             Giveaway giveaway = giveawayService.getGiveawayById(id);
             GiveawayDTO dto = modelMapper.map(giveaway, GiveawayDTO.class);
-            String json = new ObjectMapper().writeValueAsString(dto);
-            return ResponseEntity.ok().body(json);
+            return ResponseEntity.ok().body(dto);
         } catch (HttpClientErrorException e) {
             return ResponseEntity.status(404).body(e.getMessage());
         } catch (IllegalArgumentException e) {
@@ -45,7 +42,6 @@ public class GiveawayController {
 
     }
 
-    // Get All By Creator Id
     @GetMapping("/users/{user_id}/giveaways")
     public ResponseEntity<?> getAllByCreatorId(@PathVariable("user_id") String id) throws JsonProcessingException {
         try {
@@ -54,15 +50,13 @@ public class GiveawayController {
             for (Giveaway giveaway: giveaways) {
                 dtos.add(modelMapper.map(giveaway, GiveawayDTO.class));
             }
-            String json = new ObjectMapper().writeValueAsString(dtos);
-            return ResponseEntity.ok().body(json);
+            return ResponseEntity.ok().body(dtos);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(e.getMessage());
         }
 
     }
 
-    // Get All By Winner Id
     @GetMapping("/giveaways/winners/{user_id}")
     public ResponseEntity<?> getAllByWinnerId(@PathVariable("user_id") String id) throws JsonProcessingException {
         try {
@@ -71,15 +65,13 @@ public class GiveawayController {
             for (Giveaway giveaway: giveaways) {
                 dtos.add(modelMapper.map(giveaway, GiveawayDTO.class));
             }
-            String json = new ObjectMapper().writeValueAsString(dtos);
-            return ResponseEntity.ok().body(json);
+            return ResponseEntity.ok().body(dtos);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(e.getMessage());
         }
 
     }
 
-    // Get All In Progress
     @GetMapping("/giveaways")
     public ResponseEntity<?> getAllInProgress() throws JsonProcessingException {
 
@@ -88,17 +80,20 @@ public class GiveawayController {
         for (Giveaway giveaway: giveaways) {
             dtos.add(modelMapper.map(giveaway, GiveawayDTO.class));
         }
-        String json = new ObjectMapper().writeValueAsString(dtos);
-        return ResponseEntity.ok().body(json);
-
-
+        return ResponseEntity.ok().body(dtos);
     }
 
-    // Post New Giveaway
     @PostMapping("/giveaways")
     public ResponseEntity<?> createGiveaway(@RequestBody Giveaway giveaway, @RequestHeader("Authorization") String headerValue) {
         String jwt = headerValue.split(" ")[1];
         giveawayService.addNewGiveaway(giveaway);
-        return ResponseEntity.status(200).body("ok");
+        return ResponseEntity.ok("");
+    }
+
+    @PostMapping("/giveaways/{giveaway_id}/comments")
+    public ResponseEntity<?> addCommentToGiveaway(@PathVariable("giveaway_id") String id, @RequestBody Comment comment, @RequestHeader("Authorization") String headerValue) {
+        String jwt = headerValue.split(" ")[1];
+        giveawayService.addCommentToGiveaway(id, comment);
+        return ResponseEntity.ok("");
     }
 }

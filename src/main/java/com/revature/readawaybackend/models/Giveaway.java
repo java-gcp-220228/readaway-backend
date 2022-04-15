@@ -4,14 +4,14 @@ package com.revature.readawaybackend.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name="giveaways")
@@ -22,11 +22,9 @@ public class Giveaway {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "start_time", nullable = false)
     private Timestamp startTime;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "end_time", nullable = false)
     private Timestamp endTime;
 
@@ -42,6 +40,11 @@ public class Giveaway {
     @ManyToOne
     @OnDelete(action= OnDeleteAction.CASCADE)
     private User winner;
+
+    @JoinColumn(name = "giveaway_id")
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @OrderBy("post_time")
+    private Set<Comment> comments = new LinkedHashSet<>();
 
     @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(
