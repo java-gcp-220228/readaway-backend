@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.*;
 
@@ -42,6 +43,7 @@ public class GiveawayService {
     public void addNewGiveaway(Giveaway giveaway) {
         String isbn = sanitizeIsbn(giveaway.getIsbn());
         giveaway.setIsbn(isbn);
+        giveaway.setStartTime(new Timestamp(System.currentTimeMillis()));
         giveawayRepo.save(giveaway);
         new Timer().schedule(new endGiveawayTask(giveaway.getId()), giveaway.getEndTime());
     }
@@ -49,6 +51,7 @@ public class GiveawayService {
     public void addCommentToGiveaway(String giveawayId, Comment comment) {
         int id = validateId(giveawayId);
         Giveaway giveaway = giveawayRepo.findById(id).get();
+        comment.setPostTime(new Timestamp(System.currentTimeMillis()));
         giveaway.getComments().add(comment);
         giveawayRepo.save(giveaway);
     }

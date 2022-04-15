@@ -5,6 +5,8 @@ import com.revature.readawaybackend.models.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+
 @Service
 public class CommentService {
 
@@ -14,6 +16,7 @@ public class CommentService {
     public void addCommentAsReply(String parentId, Comment reply) {
         int id = validateId(parentId);
         Comment parent = commentRepo.findById(id).get();
+        reply.setPostTime(new Timestamp(System.currentTimeMillis()));
         parent.getReplies().add(reply);
         commentRepo.save(parent);
     }
