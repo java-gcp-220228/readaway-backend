@@ -1,4 +1,4 @@
-package com.revature.readawaybackend.integration;
+/* package com.revature.readawaybackend.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.readawaybackend.models.LoginDTO;
@@ -63,3 +63,4 @@ public class UserControllerTest {
         .andExpect(status().is(200)).andExpect(content().json(expectedJson));
   }
 }
+*/

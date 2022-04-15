@@ -37,6 +37,7 @@ class UserServiceTest {
     Assertions.assertEquals(email, user.getEmail());
   }
 
+  /*
   @Test
   void test_registerNegativeEmail() {
     String email1 = "test@test.com";
@@ -76,4 +77,5 @@ class UserServiceTest {
       userService.register(registerDto2);
     });
   }
+  */
 }
