@@ -6,6 +6,7 @@ import com.revature.readawaybackend.models.*;
 import com.revature.readawaybackend.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +21,8 @@ public class UserController {
   UserService userService;
   @Autowired
   JwtService jwtService;
-  @Autowired
-  PasswordEncoder passwordEncoder;
+
+  PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
   @PostMapping("/login")
   public ResponseEntity<?> login(@RequestBody LoginDTO dto) throws JsonProcessingException {
@@ -43,7 +44,7 @@ public class UserController {
     try {
       String encode = passwordEncoder.encode(dto.getPassword());
       RegisterDTO register = new RegisterDTO(dto.getEmail(), dto.getUsername(), encode);
-      User registered = userService.register(register);
+      User registered = userService.register(dto);
       String jwt = jwtService.createJwt(registered);
 
       HttpHeaders responseHeaders = new HttpHeaders();

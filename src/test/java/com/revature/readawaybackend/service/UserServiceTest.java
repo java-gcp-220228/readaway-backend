@@ -10,6 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,8 +20,7 @@ public class UserServiceTest {
   @Mock
   UserRepository userRepo;
 
-  @Mock
-  PasswordEncoder passwordEncoder;
+  PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
   @InjectMocks
   private UserService userService;
@@ -43,21 +43,43 @@ public class UserServiceTest {
   }
 
   @Test
-  void test_registerNegativeEmail() {
-    Assertions.assertThrows(UserExistsException.class, () -> {
-      String email = "test@test.com";
-      String username = "testing123";
-      String password = "password";
+  void test_registerNegativeEmail() throws UserExistsException {
+    String email1 = "test@test.com";
+    String username1 = "testing123";
+    String password1 = "password";
 
-      RegisterDTO registerDto = new RegisterDTO(email, username, password);
-      userService.register(registerDto);
-      userService.register(registerDto);
+    RegisterDTO registerDto1 = new RegisterDTO(email1, username1, password1);
+
+    String email2 = "test@test.com";
+    String username2 = "testing12345";
+    String password2 = "password";
+
+    RegisterDTO registerDto2 = new RegisterDTO(email2, username2, password2);
+
+    Assertions.assertThrows(UserExistsException.class, () -> {
+      userService.register(registerDto1);
+      userService.register(registerDto2);
     });
   }
 
   @Test
   void test_registerNegativeUsername() throws UserExistsException {
+    String email1 = "test@test.com";
+    String username1 = "testing123";
+    String password1 = "password";
 
+    RegisterDTO registerDto1 = new RegisterDTO(email1, username1, password1);
+
+    String email2 = "testing@test.com";
+    String username2 = "testing123";
+    String password2 = "password";
+
+    RegisterDTO registerDto2 = new RegisterDTO(email2, username2, password2);
+
+    Assertions.assertThrows(UserExistsException.class, () -> {
+      userService.register(registerDto1);
+      userService.register(registerDto2);
+    });
   }
 
   @Test
