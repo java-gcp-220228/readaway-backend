@@ -36,7 +36,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'com.revature.main.Driver'
+        attributes 'Main-Class': 'com.revature.readawaybackend.ReadawayBackendApplication'
     }
 
     from {
