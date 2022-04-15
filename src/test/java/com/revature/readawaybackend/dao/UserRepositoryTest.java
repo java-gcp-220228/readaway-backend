@@ -8,6 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.DirtiesContext;
 
+import javax.security.auth.login.FailedLoginException;
+
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
+
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserRepositoryTest {
@@ -16,7 +21,7 @@ public class UserRepositoryTest {
 
   // test login for user
   @Test
-  void test_UsernamePasswordPositive() {
+  public void test_UsernamePasswordPositive() {
     User actual = userRepo.findByUsernameAndPassword("john_doe", "pass");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
@@ -25,7 +30,7 @@ public class UserRepositoryTest {
   }
 
   @Test
-  void test_UsernamePasswordNegative() {
+  public void test_UsernamePasswordNegative() {
     User actual = userRepo.findByUsernameAndPassword("jane_doe", "123");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
@@ -34,7 +39,7 @@ public class UserRepositoryTest {
   }
 
   @Test
-  void test_UsernamePasswordBlankNegative() {
+  public void test_UsernamePasswordBlankNegative() {
     User actual = userRepo.findByUsernameAndPassword("  ", "   ");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");

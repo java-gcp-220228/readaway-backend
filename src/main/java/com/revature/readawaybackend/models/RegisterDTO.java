@@ -1,3 +1,4 @@
+
 package com.revature.readawaybackend.models;
 
 import lombok.*;

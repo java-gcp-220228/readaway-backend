@@ -3,6 +3,7 @@ package com.revature.readawaybackend.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
