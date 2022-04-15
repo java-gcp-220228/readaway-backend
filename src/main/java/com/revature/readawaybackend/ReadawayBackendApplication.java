@@ -15,7 +15,6 @@ public class ReadawayBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ReadawayBackendApplication.class, args);
-		new GiveawayService().serverRestartScheduleGiveaways();
 	}
 
 }

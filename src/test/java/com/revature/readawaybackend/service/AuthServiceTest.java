@@ -8,8 +8,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.security.auth.login.FailedLoginException;
 
@@ -22,8 +20,6 @@ public class AuthServiceTest {
   @Mock
   private UserRepository userRepo;
 
-  private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
   @InjectMocks
   private AuthService authService;
 
@@ -33,15 +29,12 @@ public class AuthServiceTest {
     mockUser.setId(20);
     mockUser.setEmail("test@test.com");
     mockUser.setUsername("test");
-    mockUser.setPassword(passwordEncoder.encode("password"));
+    mockUser.setPassword("password");
 
-    String encoded = passwordEncoder.encode("password");
+    when(userRepo.findByUsernameAndPassword(eq("test"), eq("password"))).thenReturn(mockUser);
 
-    when(userRepo.findByUsernameAndPassword(eq("test"), eq(encoded))).thenReturn(mockUser);
-
-    User actual = authService.login("test", encoded);
-    User expected = mockUser;
-
+    User actual = authService.login("test", "password");
+    User expected = new User(20, "test", "password", "test@test.com");
 
     Assertions.assertEquals(expected, actual);
   }
@@ -49,15 +42,5 @@ public class AuthServiceTest {
   @Test
   void test_loginValidNegative() throws FailedLoginException {
 
-  }
-
-  @Test
-  void encode() {
-    String plainPassword = "password";
-
-    String encoded = passwordEncoder.encode(plainPassword);
-    System.out.println(encoded);
-
-    assertTrue(encoded.startsWith("$2a$10"));
   }
 }

@@ -10,8 +10,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,8 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class UserServiceTest {
   @Mock
   UserRepository userRepo;
-
-  PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
   @InjectMocks
   private UserService userService;
@@ -43,7 +39,7 @@ public class UserServiceTest {
   }
 
   @Test
-  void test_registerNegativeEmail() throws UserExistsException {
+  void test_registerNegativeEmail() {
     String email1 = "test@test.com";
     String username1 = "testing123";
     String password1 = "password";
@@ -63,7 +59,7 @@ public class UserServiceTest {
   }
 
   @Test
-  void test_registerNegativeUsername() throws UserExistsException {
+  void test_registerNegativeUsername() {
     String email1 = "test@test.com";
     String username1 = "testing123";
     String password1 = "password";
@@ -80,14 +76,5 @@ public class UserServiceTest {
       userService.register(registerDto1);
       userService.register(registerDto2);
     });
-  }
-
-  @Test
-  void encode() {
-    String plainPassword = "password";
-
-    String encoded = passwordEncoder.encode(plainPassword);
-
-    assertTrue(encoded.startsWith("$2a$10"));
   }
 }

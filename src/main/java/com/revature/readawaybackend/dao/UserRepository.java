@@ -1,4 +1,3 @@
-
 package com.revature.readawaybackend.dao;
 
 import com.revature.readawaybackend.models.User;
