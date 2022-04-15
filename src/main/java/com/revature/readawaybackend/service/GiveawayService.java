@@ -50,21 +50,27 @@ public class GiveawayService {
 
   public void addCommentToGiveaway(String giveawayId, Comment comment) {
     int id = validateId(giveawayId);
-    Giveaway giveaway = giveawayRepo.findById(id).get();
-    comment.setPostTime(new Timestamp(System.currentTimeMillis()));
-    giveaway.getComments().add(comment);
-    giveawayRepo.save(giveaway);
+    if (giveawayRepo.findById(id).isPresent()) {
+      Giveaway giveaway = giveawayRepo.findById(id).get();
+      comment.setPostTime(new Timestamp(System.currentTimeMillis()));
+      giveaway.getComments().add(comment);
+      giveawayRepo.save(giveaway);
+    }
   }
 
   private void pickRandomWinner(int giveawayId) {
-    Giveaway giveaway = giveawayRepo.findById(giveawayId).get();
-    Set<User> entries = giveaway.getEntrants();
-    if (entries.size() == 0) {
-      giveawayRepo.delete(giveaway);
-    } else {
-      User winner = entries.stream().skip(new Random().nextInt(entries.size())).findFirst().get();
-      giveaway.setWinner(winner);
-      giveawayRepo.save(giveaway);
+    if (giveawayRepo.findById(giveawayId).isPresent()) {
+      Giveaway giveaway = giveawayRepo.findById(giveawayId).get();
+      Set<User> entries = giveaway.getEntrants();
+
+      Optional<User> random = entries.stream().skip(new Random().nextInt(entries.size())).findFirst();
+      if (entries.size() == 0) {
+        giveawayRepo.delete(giveaway);
+      } else if (random.isPresent()) {
+        User winner = random.get();
+        giveaway.setWinner(winner);
+        giveawayRepo.save(giveaway);
+      }
     }
   }
 
