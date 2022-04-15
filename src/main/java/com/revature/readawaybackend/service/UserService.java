@@ -4,27 +4,30 @@ import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.exceptions.UserExistsException;
 import com.revature.readawaybackend.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
   @Autowired
-  UserRepository userRepo;
-  @Autowired
-  private PasswordEncoder passwordEncoder;
+  private UserRepository userRepo;
+
   public User register(UserDTO dto) throws UserExistsException {
     if(emailExists(dto.getEmail())) {
-      throw new UserExistsException("An account exists with email address" + dto.getEmail());
+      throw new UserExistsException("An account exists with email address " + dto.getEmail());
     }
-
-    if(userExists(dto.getUsername())) {}
+    if(userExists(dto.getUsername())) {
+      throw new UserExistsException("An account exists with username " + dto.getUsername());
+    }
 
     User user = new User();
 
     user.setEmail(dto.getEmail());
     user.setUsername(dto.getUsername());
-    user.setPassword(passwordEncoder.encode(dto.getPassword()));
+    user.setPassword(dto.getPassword());
     // save or saveAndFlush?
-    return userRepo.save(user);
+    userRepo.saveAndFlush(user);
+
+    return user;
   }
 
   private boolean emailExists(String email) {

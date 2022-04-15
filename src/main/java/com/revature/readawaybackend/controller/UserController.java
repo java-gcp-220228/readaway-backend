@@ -1,12 +1,12 @@
-package com.revature.readawaybackend.controllers;
+package com.revature.readawaybackend.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.revature.readawaybackend.exceptions.UserExistsException;
 import com.revature.readawaybackend.models.*;
 import com.revature.readawaybackend.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.security.auth.login.FailedLoginException;
@@ -20,11 +20,13 @@ public class UserController {
   UserService userService;
   @Autowired
   JwtService jwtService;
+  @Autowired
+  PasswordEncoder passwordEncoder;
 
   @PostMapping("/login")
   public ResponseEntity<?> login(@RequestBody LoginDTO dto) throws JsonProcessingException {
     try {
-      User user = authService.login(dto.getUsername(), dto.getPassword());
+      User user = authService.login(dto.getUsername(), passwordEncoder.encode(dto.getPassword()));;
       String jwt = jwtService.createJwt(user);
 
       HttpHeaders responseHeaders = new HttpHeaders();
@@ -39,7 +41,9 @@ public class UserController {
   @PostMapping("/register")
   public ResponseEntity<?> register(@RequestBody UserDTO dto) throws JsonProcessingException {
     try {
-      User registered = userService.register(dto);
+      String encode = passwordEncoder.encode(dto.getPassword());
+      UserDTO register = new UserDTO(dto.getEmail(), dto.getUsername(), encode);
+      User registered = userService.register(register);
       String jwt = jwtService.createJwt(registered);
 
       HttpHeaders responseHeaders = new HttpHeaders();

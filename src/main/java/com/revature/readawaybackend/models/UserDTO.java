@@ -17,4 +17,10 @@ public class UserDTO {
   @NotNull
   @Size(min = 1)
   private String email;
+
+  public UserDTO(String email, String username, String password) {
+    this.email = email;
+    this.username = username;
+    this.password = password;
+  }
 }
