@@ -3,8 +3,11 @@ package com.revature.readawaybackend.models;
 import lombok.*;
 
 @NoArgsConstructor
-@Data
-public class UserDTO {
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
+public class UserJwtDTO {
   private int id;
   private String username;
   private String email;

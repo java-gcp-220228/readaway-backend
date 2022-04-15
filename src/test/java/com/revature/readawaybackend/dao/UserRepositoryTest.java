@@ -7,11 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
-import javax.security.auth.login.FailedLoginException;
-
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
-
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserRepositoryTest {
@@ -46,7 +41,35 @@ public class UserRepositoryTest {
     Assertions.assertNotEquals(actual, expected);
   }
 
-  // test registration for user
+  @Test
+  void test_findByEmailPositive() {
+    User actual = userRepo.findByEmail("john_doe@email.com");
+    User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
 
+    Assertions.assertEquals(actual, expected);
+  }
 
+  @Test
+  void test_findByEmailNegative() {
+    User actual = userRepo.findByEmail("test@email.com");
+    User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
+
+    Assertions.assertNotEquals(actual, expected);
+  }
+
+  @Test
+  void test_findByUsernamePositive() {
+    User actual = userRepo.findByUsername("john_doe");
+    User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
+
+    Assertions.assertEquals(actual, expected);
+  }
+
+  @Test
+  void test_findByUsernameNegative() {
+    User actual = userRepo.findByUsername("johnn_doee");
+    User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
+
+    Assertions.assertNotEquals(actual, expected);
+  }
 }
