@@ -3,7 +3,7 @@ package com.revature.readawaybackend.service;
 import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.exceptions.UserExistsException;
 import com.revature.readawaybackend.models.User;
-import com.revature.readawaybackend.models.UserDTO;
+import com.revature.readawaybackend.models.RegisterDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,9 +31,9 @@ public class UserServiceTest {
     String username = "testing123";
     String password = "password";
 
-    UserDTO userDto = new UserDTO(email, username, password);
+    RegisterDTO registerDto = new RegisterDTO(email, username, password);
 
-    User user = userService.register(userDto);
+    User user = userService.register(registerDto);
 
     System.out.println(user.getId());
 
@@ -49,9 +49,9 @@ public class UserServiceTest {
       String username = "testing123";
       String password = "password";
 
-      UserDTO userDto = new UserDTO(email, username, password);
-      userService.register(userDto);
-      userService.register(userDto);
+      RegisterDTO registerDto = new RegisterDTO(email, username, password);
+      userService.register(registerDto);
+      userService.register(registerDto);
     });
   }
 

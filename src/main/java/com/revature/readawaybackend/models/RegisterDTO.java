@@ -5,9 +5,10 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserDTO {
+public class RegisterDTO {
   @NotNull
   @Size(min = 1)
   private String username;
@@ -17,10 +18,4 @@ public class UserDTO {
   @NotNull
   @Size(min = 1)
   private String email;
-
-  public UserDTO(String email, String username, String password) {
-    this.email = email;
-    this.username = username;
-    this.password = password;
-  }
 }

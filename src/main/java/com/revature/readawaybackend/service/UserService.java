@@ -11,7 +11,15 @@ public class UserService {
   @Autowired
   private UserRepository userRepo;
 
-  public User register(UserDTO dto) throws UserExistsException {
+  private boolean emailExists(String email) {
+    return userRepo.findByEmail(email) != null;
+  }
+
+  private boolean userExists(String username) {
+    return userRepo.findByUsername(username) != null;
+  }
+
+  public User register(RegisterDTO dto) throws UserExistsException {
     if(emailExists(dto.getEmail())) {
       throw new UserExistsException("An account exists with email address " + dto.getEmail());
     }
@@ -28,13 +36,5 @@ public class UserService {
     userRepo.saveAndFlush(user);
 
     return user;
-  }
-
-  private boolean emailExists(String email) {
-    return userRepo.findByEmail(email) != null;
-  }
-
-  private boolean userExists(String username) {
-    return userRepo.findByUsername(username) != null;
   }
 }

@@ -39,10 +39,10 @@ public class UserController {
   }
 
   @PostMapping("/register")
-  public ResponseEntity<?> register(@RequestBody UserDTO dto) throws JsonProcessingException {
+  public ResponseEntity<?> register(@RequestBody RegisterDTO dto) throws JsonProcessingException {
     try {
       String encode = passwordEncoder.encode(dto.getPassword());
-      UserDTO register = new UserDTO(dto.getEmail(), dto.getUsername(), encode);
+      RegisterDTO register = new RegisterDTO(dto.getEmail(), dto.getUsername(), encode);
       User registered = userService.register(register);
       String jwt = jwtService.createJwt(registered);
 
