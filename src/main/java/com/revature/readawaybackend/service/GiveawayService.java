@@ -55,10 +55,12 @@ public class GiveawayService {
 
   public void addCommentToGiveaway(String giveawayId, Comment comment) {
     int id = validateId(giveawayId);
-    Giveaway giveaway = giveawayRepo.findById(id).get();
-    comment.setPostTime(new Timestamp(System.currentTimeMillis()));
-    giveaway.getComments().add(comment);
-    giveawayRepo.save(giveaway);
+    if (giveawayRepo.findById(id).isPresent()) {
+      Giveaway giveaway = giveawayRepo.findById(id).get();
+      comment.setPostTime(new Timestamp(System.currentTimeMillis()));
+      giveaway.getComments().add(comment);
+      giveawayRepo.save(giveaway);
+    }
   }
 
   public void addEntryToGiveaway(String giveawayId, String userId) {
