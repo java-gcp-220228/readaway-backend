@@ -1,6 +1,7 @@
 package com.revature.readawaybackend.service;
 
 import com.revature.readawaybackend.dao.GiveawayRepository;
+import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
@@ -18,6 +19,9 @@ public class GiveawayService {
 
   @Autowired
   GiveawayRepository giveawayRepo;
+
+  @Autowired
+  UserRepository userRepo;
 
   public Giveaway getGiveawayById(String giveawayId) {
     int id = validateId(giveawayId);
@@ -53,6 +57,15 @@ public class GiveawayService {
     Giveaway giveaway = giveawayRepo.findById(id).get();
     comment.setPostTime(new Timestamp(System.currentTimeMillis()));
     giveaway.getComments().add(comment);
+    giveawayRepo.save(giveaway);
+  }
+
+  public void addEntryToGiveaway(String giveawayId, String userId) {
+    int gId = validateId(giveawayId);
+    int uId = validateId(userId);
+    User user = userRepo.findById(uId).get();
+    Giveaway giveaway = giveawayRepo.findById(gId).get();
+    giveaway.getEntrants().add(user);
     giveawayRepo.save(giveaway);
   }
 
