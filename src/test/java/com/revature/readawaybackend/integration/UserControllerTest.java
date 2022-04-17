@@ -1,4 +1,4 @@
-/* package com.revature.readawaybackend.integration;
+package com.revature.readawaybackend.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.readawaybackend.models.LoginDTO;
@@ -57,10 +57,8 @@ public class UserControllerTest {
     expected.setEmail("jdoe@email.com");
 
     String expectedJson = (new ObjectMapper()).writeValueAsString(expected);
-
     this.mockMvc.perform(
             post("/register").contentType(MediaType.APPLICATION_JSON).content(jsonDto))
         .andExpect(status().is(200)).andExpect(content().json(expectedJson));
   }
 }
-*/
