@@ -14,13 +14,13 @@ import java.util.*;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-public class GiveawayRepositoryTest {
+class GiveawayRepositoryTest {
 
   @Autowired
   private GiveawayRepository giveawayRepo;
 
   @Test
-  public void test_getGiveawayById_validGiveawayId() {
+  void test_getGiveawayById_validGiveawayId() {
 
     Giveaway actual = giveawayRepo.findById(1).get();
 
@@ -41,12 +41,12 @@ public class GiveawayRepositoryTest {
   }
 
   @Test
-  public void test_getGiveawayById_invalidId() {
+  void test_getGiveawayById_invalidId() {
     Assertions.assertFalse(giveawayRepo.findById(500).isPresent());
   }
 
   @Test
-  public void test_AddGiveaway() {
+  void test_AddGiveaway() {
     User user = new User();
     user.setId(1);
     user.setUsername("john_doe");
@@ -69,7 +69,7 @@ public class GiveawayRepositoryTest {
   }
 
   @Test
-  public void test_UpdateGiveawayWinner_ExistingGiveaway() {
+  void test_UpdateGiveawayWinner_ExistingGiveaway() {
     User user = new User();
     user.setId(1);
     user.setUsername("john_doe");
@@ -94,7 +94,7 @@ public class GiveawayRepositoryTest {
   }
 
   @Test
-  public void test_UpdateEntry_AddNewEntry() {
+  void test_UpdateEntry_AddNewEntry() {
     Giveaway giveaway = giveawayRepo.findById(1).get();
 
     User user = new User();
@@ -131,7 +131,7 @@ public class GiveawayRepositoryTest {
   }
 
   @Test
-  public void test_getAllGiveawaysWhereWinnerIsNull() {
+  void test_getAllGiveawaysWhereWinnerIsNull() {
     Set<Giveaway> actualGiveaways = giveawayRepo.findByWinnerIsNull();
 
     User user2 = new User();
@@ -195,7 +195,7 @@ public class GiveawayRepositoryTest {
   }
 
   @Test
-  public void test_getAllGiveawaysByCreatorId() {
+  void test_getAllGiveawaysByCreatorId() {
 
     Set<Giveaway> actualGiveaways = giveawayRepo.findByCreatorId(2);
 
@@ -228,7 +228,7 @@ public class GiveawayRepositoryTest {
   }
 
   @Test
-  public void test_findAllGivewaysByWinnerId() {
+  void test_findAllGivewaysByWinnerId() {
 
     Set<Giveaway> actualGiveaways = giveawayRepo.findByWinnerId(2);
 

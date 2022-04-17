@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class CommentServiceTest {
+class CommentServiceTest {
 
   @Mock
   private CommentRepository commentRepository;
