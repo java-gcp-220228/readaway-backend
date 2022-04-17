@@ -9,13 +9,13 @@ import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-public class UserRepositoryTest {
+class UserRepositoryTest {
   @Autowired
   private UserRepository userRepo;
 
   // test login for user
   @Test
-  public void test_UsernamePasswordPositive() {
+  void test_UsernamePasswordPositive() {
     User actual = userRepo.findByUsernameAndPassword("john_doe", "pass");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
@@ -24,7 +24,7 @@ public class UserRepositoryTest {
   }
 
   @Test
-  public void test_UsernamePasswordNegative() {
+  void test_UsernamePasswordNegative() {
     User actual = userRepo.findByUsernameAndPassword("jane_doe", "123");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");
@@ -33,7 +33,7 @@ public class UserRepositoryTest {
   }
 
   @Test
-  public void test_UsernamePasswordBlankNegative() {
+  void test_UsernamePasswordBlankNegative() {
     User actual = userRepo.findByUsernameAndPassword("  ", "   ");
 
     User expected = new User(1, "john_doe", "pass", "john_doe@email.com");

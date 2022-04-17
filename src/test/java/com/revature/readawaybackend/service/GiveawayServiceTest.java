@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class GiveawayServiceTest {
+class GiveawayServiceTest {
 
   @Mock
   private GiveawayRepository giveawayRepository;
