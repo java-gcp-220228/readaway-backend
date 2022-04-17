@@ -25,14 +25,14 @@ class UserServiceTest {
   void test_findByEmail_EmailDoesntExist() {
     String email = "testing@test.com";
 
-    Assertions.assertFalse(userService.userExists(email));
+    Assertions.assertFalse(userService.emailExists(email));
   }
 
   @Test
   void test_findByEmail_EmailDoesExist() {
     String email = "jane_doe@email.com";
 
-    Assertions.assertFalse(userService.userExists(email));
+    Assertions.assertFalse(userService.emailExists(email));
   }
 
   @Test
@@ -67,23 +67,17 @@ class UserServiceTest {
   /*
   @Test
   void test_registerNegativeEmail() {
-    String email1 = "test@test.com";
-    String username1 = "testing123";
-    String password1 = "password";
+    String email = "jane_doe@email.com";
+    String username = "testing123";
+    String password = "password";
 
-    RegisterDTO registerDto1 = new RegisterDTO(email1, username1, password1);
-
-    String email2 = "test@test.com";
-    String username2 = "testing12345";
-    String password2 = "password";
-
-    RegisterDTO registerDto2 = new RegisterDTO(email2, username2, password2);
+    RegisterDTO dto = new RegisterDTO(email, username, password);
 
     Assertions.assertThrows(UserExistsException.class, () -> {
-      userService.register(registerDto1);
-      userService.register(registerDto2);
+      userService.register(dto);
     });
   }
+
 
   @Test
   void test_registerNegativeUsername() {
