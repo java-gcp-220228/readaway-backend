@@ -1,9 +1,11 @@
 package com.revature.readawaybackend.service;
 
 import com.revature.readawaybackend.dao.GiveawayRepository;
+import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
+import com.revature.readawaybackend.util.EmailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,9 @@ public class GiveawayService {
 
   @Autowired
   GiveawayRepository giveawayRepo;
+
+  @Autowired
+  UserRepository userRepo;
 
   public Giveaway getGiveawayById(String giveawayId) {
     int id = validateId(giveawayId);
@@ -50,9 +55,20 @@ public class GiveawayService {
 
   public void addCommentToGiveaway(String giveawayId, Comment comment) {
     int id = validateId(giveawayId);
-    Giveaway giveaway = giveawayRepo.findById(id).get();
-    comment.setPostTime(new Timestamp(System.currentTimeMillis()));
-    giveaway.getComments().add(comment);
+    if (giveawayRepo.findById(id).isPresent()) {
+      Giveaway giveaway = giveawayRepo.findById(id).get();
+      comment.setPostTime(new Timestamp(System.currentTimeMillis()));
+      giveaway.getComments().add(comment);
+      giveawayRepo.save(giveaway);
+    }
+  }
+
+  public void addEntryToGiveaway(String giveawayId, String userId) {
+    int gId = validateId(giveawayId);
+    int uId = validateId(userId);
+    User user = userRepo.findById(uId).get();
+    Giveaway giveaway = giveawayRepo.findById(gId).get();
+    giveaway.getEntrants().add(user);
     giveawayRepo.save(giveaway);
   }
 
@@ -65,6 +81,9 @@ public class GiveawayService {
       User winner = entries.stream().skip(new Random().nextInt(entries.size())).findFirst().get();
       giveaway.setWinner(winner);
       giveawayRepo.save(giveaway);
+      EmailUtil.sendMail(winner.getEmail(), "You've won a giveaway!",
+              "You've been selected as the winner for https://readaway-site.web.app/giveaways/" + giveawayId +
+                      " Please contact " + giveaway.getCreator().getUsername() + " to receive your prize.");
     }
   }
 

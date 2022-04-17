@@ -3,6 +3,7 @@ package com.revature.readawaybackend.service;
 
 import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.models.User;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,9 @@ public class AuthService {
     if (username.trim().equals("") || password.equals("")) {
       throw new IllegalArgumentException("Enter a username/password");
     }
-    User user = userRepo.findByUsernameAndPassword(username.trim(), password);
+    String plainPswd = password.trim();
+
+    User user = userRepo.findByUsernameAndPassword(username.trim(), password.trim());
 
     if (user == null) {
       throw new FailedLoginException("Invalid information entered");

@@ -96,4 +96,11 @@ public class GiveawayController {
     giveawayService.addCommentToGiveaway(id, comment);
     return ResponseEntity.ok("");
   }
+
+  @PostMapping("/giveaways/{giveaway_id}/entries/{user_id}")
+  public ResponseEntity<?> addEntryToGiveaway(@PathVariable("giveaway_id") String giveawayId, @PathVariable("user_id") String userId, @RequestHeader("Authorization") String headerValue) {
+    String jwt = headerValue.split(" ")[1];
+    giveawayService.addEntryToGiveaway(giveawayId, userId);
+    return ResponseEntity.ok("");
+  }
 }

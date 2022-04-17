@@ -1,7 +1,7 @@
 package com.revature.readawaybackend.service;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.revature.readawaybackend.dao.GiveawayRepository;
+import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
@@ -23,10 +23,13 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class GiveawayServiceTest {
+class GiveawayServiceTest {
 
   @Mock
   private GiveawayRepository giveawayRepository;
+
+  @Mock
+  private UserRepository userRepository;
 
   @InjectMocks
   private GiveawayService giveawayService;
@@ -110,10 +113,8 @@ public class GiveawayServiceTest {
     });
   }
 
-  // Get GiveawayByValidWinnerId
   @Test
   void getAllGiveawaysByWinnerId() {
-
     User user = new User();
     user.setId(1);
     user.setUsername("jane_doe");
@@ -153,7 +154,6 @@ public class GiveawayServiceTest {
     });
   }
 
-  // Get GiveawayWinnerIsNull
   @Test
   void getAllGiveawaysInProgress() {
     User user = new User();
@@ -236,6 +236,7 @@ public class GiveawayServiceTest {
 
     entries.add(user);
     newGiveaway.setEntrants(entries);
+    newGiveaway.setCreator(user);
 
     when(giveawayRepository.findById(1)).thenReturn(Optional.of(newGiveaway));
 
@@ -281,6 +282,7 @@ public class GiveawayServiceTest {
     user.setEmail("jane_doe@email.com");
     entrants.add(user);
     giveaway.setEntrants(entrants);
+    giveaway.setCreator(user);
 
     Set<Giveaway> giveaways = new HashSet<>();
     giveaways.add(giveaway);
@@ -307,6 +309,7 @@ public class GiveawayServiceTest {
     user.setEmail("jane_doe@email.com");
     entrants.add(user);
     giveaway.setEntrants(entrants);
+    giveaway.setCreator(user);
 
     Set<Giveaway> giveaways = new HashSet<>();
     giveaways.add(giveaway);
@@ -327,5 +330,16 @@ public class GiveawayServiceTest {
     when(giveawayRepository.findById(1)).thenReturn(Optional.of(giveaway));
 
     Assertions.assertDoesNotThrow(() -> giveawayService.addCommentToGiveaway("1", comment));
+  }
+
+  @Test
+  void addEntryToGiveaway() {
+    Giveaway giveaway = new Giveaway();
+    User user = new User();
+
+    when(giveawayRepository.findById(1)).thenReturn(Optional.of(giveaway));
+    when(userRepository.findById(1)).thenReturn(Optional.of(user));
+
+    Assertions.assertDoesNotThrow(() -> giveawayService.addEntryToGiveaway("1", "1"));
   }
 }

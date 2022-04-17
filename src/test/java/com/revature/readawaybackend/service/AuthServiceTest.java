@@ -39,8 +39,17 @@ class AuthServiceTest {
     Assertions.assertEquals(expected, actual);
   }
 
-//  @Test
-//  void test_loginValidNegative() throws FailedLoginException {
-//
-//  }
+  @Test
+  void test_loginValidEmptyFields() throws IllegalArgumentException {
+    Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      authService.login("  ", "   ");
+    });
+  }
+
+  @Test
+  void test_loginValidInvalidCred() throws FailedLoginException {
+    Assertions.assertThrows(FailedLoginException.class, () -> {
+      authService.login("invalid", "invalid");
+    });
+  }
 }
