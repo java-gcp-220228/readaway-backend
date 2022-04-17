@@ -12,11 +12,11 @@ public class UserService {
   @Autowired
   private UserRepository userRepo;
 
-  private boolean emailExists(String email) {
+  public boolean emailExists(String email) {
     return userRepo.findByEmail(email) != null;
   }
 
-  private boolean userExists(String username) {
+  public boolean userExists(String username) {
     return userRepo.findByUsername(username) != null;
   }
 
@@ -29,13 +29,13 @@ public class UserService {
     }
 
     String plainPswd = dto.getPassword();
-    String hashed = BCrypt.hashpw(plainPswd, BCrypt.gensalt());
+//    String hashed = BCrypt.hashpw(plainPswd, BCrypt.gensalt());
 
     User user = new User();
 
     user.setEmail(dto.getEmail());
     user.setUsername(dto.getUsername());
-    user.setPassword(hashed);
+    user.setPassword(plainPswd);
     // save or saveAndFlush?
     userRepo.saveAndFlush(user);
 

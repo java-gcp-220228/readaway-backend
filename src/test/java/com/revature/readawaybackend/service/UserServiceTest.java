@@ -10,16 +10,43 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.springframework.test.context.ActiveProfiles;
 
 @ExtendWith(MockitoExtension.class)
+@ActiveProfiles("test")
 class UserServiceTest {
   @Mock
   UserRepository userRepo;
 
   @InjectMocks
   private UserService userService;
+
+  @Test
+  void test_findByEmail_EmailDoesntExist() {
+    String email = "testing@test.com";
+
+    Assertions.assertFalse(userService.userExists(email));
+  }
+
+  @Test
+  void test_findByEmail_EmailDoesExist() {
+    String email = "jane_doe@email.com";
+
+    Assertions.assertFalse(userService.userExists(email));
+  }
+
+  @Test
+  void test_findByUsername_UserDoesntExist() {
+    String username = "testing@test.com";
+
+    Assertions.assertFalse(userService.userExists(username));
+  }
+
+  @Test
+  void test_findByUser_userDoesExist() {
+    String username = "jane_doe";
+    Assertions.assertFalse(userService.userExists(username));
+  }
 
   @Test
   void test_registerPositive() throws UserExistsException {
