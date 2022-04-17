@@ -1,6 +1,7 @@
 package com.revature.readawaybackend.service;
 
 import com.revature.readawaybackend.dao.GiveawayRepository;
+import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
@@ -26,6 +27,9 @@ public class GiveawayServiceTest {
 
   @Mock
   private GiveawayRepository giveawayRepository;
+
+  @Mock
+  private UserRepository userRepository;
 
   @InjectMocks
   private GiveawayService giveawayService;
@@ -326,5 +330,16 @@ public class GiveawayServiceTest {
     when(giveawayRepository.findById(1)).thenReturn(Optional.of(giveaway));
 
     Assertions.assertDoesNotThrow(() -> giveawayService.addCommentToGiveaway("1", comment));
+  }
+
+  @Test
+  void addEntryToGiveaway() {
+    Giveaway giveaway = new Giveaway();
+    User user = new User();
+
+    when(giveawayRepository.findById(1)).thenReturn(Optional.of(giveaway));
+    when(userRepository.findById(1)).thenReturn(Optional.of(user));
+
+    Assertions.assertDoesNotThrow(() -> giveawayService.addEntryToGiveaway("1", "1"));
   }
 }
