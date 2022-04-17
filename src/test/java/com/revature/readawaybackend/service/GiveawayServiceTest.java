@@ -1,6 +1,5 @@
 package com.revature.readawaybackend.service;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.revature.readawaybackend.dao.GiveawayRepository;
 import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
@@ -110,10 +109,8 @@ public class GiveawayServiceTest {
     });
   }
 
-  // Get GiveawayByValidWinnerId
   @Test
   void getAllGiveawaysByWinnerId() {
-
     User user = new User();
     user.setId(1);
     user.setUsername("jane_doe");
@@ -153,7 +150,6 @@ public class GiveawayServiceTest {
     });
   }
 
-  // Get GiveawayWinnerIsNull
   @Test
   void getAllGiveawaysInProgress() {
     User user = new User();
@@ -236,6 +232,7 @@ public class GiveawayServiceTest {
 
     entries.add(user);
     newGiveaway.setEntrants(entries);
+    newGiveaway.setCreator(user);
 
     when(giveawayRepository.findById(1)).thenReturn(Optional.of(newGiveaway));
 
@@ -281,6 +278,7 @@ public class GiveawayServiceTest {
     user.setEmail("jane_doe@email.com");
     entrants.add(user);
     giveaway.setEntrants(entrants);
+    giveaway.setCreator(user);
 
     Set<Giveaway> giveaways = new HashSet<>();
     giveaways.add(giveaway);
@@ -307,6 +305,7 @@ public class GiveawayServiceTest {
     user.setEmail("jane_doe@email.com");
     entrants.add(user);
     giveaway.setEntrants(entrants);
+    giveaway.setCreator(user);
 
     Set<Giveaway> giveaways = new HashSet<>();
     giveaways.add(giveaway);

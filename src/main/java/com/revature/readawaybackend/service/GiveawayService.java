@@ -5,6 +5,7 @@ import com.revature.readawaybackend.dao.UserRepository;
 import com.revature.readawaybackend.models.Comment;
 import com.revature.readawaybackend.models.Giveaway;
 import com.revature.readawaybackend.models.User;
+import com.revature.readawaybackend.util.EmailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -78,6 +79,9 @@ public class GiveawayService {
       User winner = entries.stream().skip(new Random().nextInt(entries.size())).findFirst().get();
       giveaway.setWinner(winner);
       giveawayRepo.save(giveaway);
+      EmailUtil.sendMail(winner.getEmail(), "You've won a giveaway!",
+              "You've been selected as the winner for https://readaway-site.web.app/giveaways/" + giveawayId +
+                      " Please contact " + giveaway.getCreator().getUsername() + " to receive your prize.");
     }
   }
 
