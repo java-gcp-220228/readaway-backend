@@ -39,13 +39,33 @@ Stretch Goals:
 
 Getting Started
 
+- Clone the repository
 ```
-In progress
+git clone https://github.com/java-gcp-220228/readaway-backend.git
 ```
+- Build the project
+```
+./gradlew build
+```
+- Run the jar file on your local machine or in a docker container
+  - Set the connection properties of your preferred database in the application.properties file
 
-Usage
+## Usage
+<br>
+    <a href="https://readaway-site.web.app/home" target="_blank">Link to Website</a>
+<br>
 
-    ** In progress
+
+   <img src="https://storage.googleapis.com/misc-github-images-bucket/home-page.PNG" width="500" height="300" />
+
+   <img src="https://storage.googleapis.com/misc-github-images-bucket/about.PNG" width="500" height="300" />
+   <img src="https://storage.googleapis.com/misc-github-images-bucket/giveaway-create.PNG" width="500" height="300" />
+   <img src="https://storage.googleapis.com/misc-github-images-bucket/giveaway-display.PNG" width="500" height="300" />
+   <br>
+   
+   
+   
+  
 
 ## Contributors
 
